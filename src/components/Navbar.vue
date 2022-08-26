@@ -2,7 +2,7 @@
   <header class="header">
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon bg-dark" for="menu-btn"
-      ><img class="img-fluid" src="https://i.postimg.cc/Yqcq57t6/click-removebg-preview.png" width="65" height="65" alt=""><span class="navicon">
+      ><img class="img-fluid" src="https://i.postimg.cc/Yqcq57t6/click-removebg-preview.png" width="35" height="35" alt=""><span class="navicon">
         </span
     ></label>
     <ul class="menu">
