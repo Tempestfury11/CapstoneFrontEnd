@@ -1,10 +1,10 @@
 <template>
   <header class="header">
     <input class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon" for="menu-btn"
-      ><span class="navicon"></span
+    <label class="menu-icon bg-dark" for="menu-btn"
+      ><img class="img-fluid" src="https://i.postimg.cc/Yqcq57t6/click-removebg-preview.png" width="65" height="65" alt=""><span class="navicon">
+        </span
     ></label>
-    <img src="https://i.postimg.cc/3w1DbR0w/Templogo-removebg-preview.png" width="90" height="65" alt="">
     <ul class="menu">
       <li class="nav-item">
         <router-link :to="{ name: 'home' }"><i class="bi bi-house-door-fill"></i>HOME</router-link>
@@ -100,6 +100,9 @@ a {
   padding: 28px 20px;
   position: relative;
   user-select: none;
+  background: white;
+  background-color: white;
+  color: red
 }
 
 .header .menu-icon .navicon {
