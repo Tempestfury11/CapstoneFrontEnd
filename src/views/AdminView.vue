@@ -1,15 +1,62 @@
 <template>
-  <div class="admin">
-
+  <div id="main" class="admin">
+    <div class="container justify-content-center">
+        <h2>WELCOME ADMINS</h2>
+        <img class="img-fluid"
+          id="logo"
+          src="https://i.postimg.cc/Mpddn0N0/Tempest-Logo-removebg-preview.png"
+          alt=""/>
+          <br>
+        <div class="container justify-content-center">
+          <router-link to="/admin/users"><button class="btn btn">View Users</button></router-link>
+          <router-link to="/admin/products"><button class="btn btn">View Products</button></router-link>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
+<style scoped>
+#main {
+  background-image: linear-gradient(
+    to right,
 
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  color: white;
+  overflow-x: hidden;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.btn{
+    background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  margin: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.btn:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
 </style>

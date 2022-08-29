@@ -1,6 +1,11 @@
 <template>
   <div class="home">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="container justify-content-center text-center">
+      <h1>TEMPEST GAMING</h1>
+      <br>
+      <img id="logo" class="img-fluid" src="https://i.postimg.cc/KjykB1Mx/Tempest-Logo-removebg-preview.png" alt="">
+    </div>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="https://i.postimg.cc/T1RjHFBW/wp2972942-xbox-4k-wallpapers.jpg" class="d-block w-100" alt="...">
@@ -20,11 +25,6 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-    </div>
-    <div class="container justify-content-center text-center">
-      <h1>TEMPEST GAMING</h1>
-      <br>
-      <img id="logo" class="img-fluid" src="https://i.postimg.cc/KjykB1Mx/Tempest-Logo-removebg-preview.png" alt="">
     </div>
   </div>
 </template>

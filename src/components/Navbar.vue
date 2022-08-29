@@ -32,6 +32,18 @@
           ><i class="fa-solid fa-gamepad"></i>PRODUCTS</router-link
         >
       </li>
+
+      <li class="nav-item">
+        <router-link :to="{ name: 'admin' }"
+          ><i class="fa-solid fa-screwdriver-wrench"></i>ADMIN</router-link
+        >
+      </li>
+
+      <li class="nav-item">
+        <router-link :to="{ name: 'contact' }"
+          ><i class="fa-solid fa-phone"></i>CONTACT</router-link
+        >
+      </li>
     </ul>
   </header>
 </template>

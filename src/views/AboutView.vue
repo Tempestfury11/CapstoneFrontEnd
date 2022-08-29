@@ -2,7 +2,7 @@
     <div id="main" class="margi">
       <div class="container marge text-center text-dark">
         <h1>ABOUT US</h1>
-        <div class="container-fluid">
+        <div id="aboutus" class="container-fluid">
           <div id="aboutzone" class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
             <div class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6">
               <div class="card h-100 card shadow">
@@ -100,6 +100,9 @@ export default {};
 </script>
 
 <style scoped>
+#aboutus{
+  padding: 50px 0 0 0;
+}
 #main {
   background-image: linear-gradient(
     to right,
@@ -111,13 +114,14 @@ export default {};
   height: 100%;
   color: white;
   overflow-x: hidden;
-  padding: 70px 0 0 0;
+  padding: 100px 0;
+  text-align: center;
 }
 .marg {
   margin-bottom: 10rem;
 }
 .marge {
-  margin-bottom: 12rem;
+  margin-bottom: 150px;
 }
 .h1,
 h1 {
