@@ -6,7 +6,7 @@
           <img src="https://i.postimg.cc/T1RjHFBW/wp2972942-xbox-4k-wallpapers.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="https://i.postimg.cc/05wrLV9z/wp2605496-playstation-logo-wallpaper.jpg" class="d-block w-100" alt="...">
+          <img src="https://i.postimg.cc/J7bFnB8p/wallpaperflare-com-wallpaper.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
           <img src="https://i.postimg.cc/PJR4pKFp/steam-wallpaper-by-alyama123-d9gsvdb-pre.jpg" class="d-block w-100" alt="...">
