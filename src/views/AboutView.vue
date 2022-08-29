@@ -1,42 +1,9 @@
 <template>
-  <div class="overlay">
     <div id="main" class="margi">
-      <div class="container-fluid marge text-dark text-center">
+      <div class="container marge text-center text-dark">
         <h1>ABOUT US</h1>
         <div class="container-fluid">
           <div id="aboutzone" class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
-            <div class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6">
-              <div class="card h-100 card shadow">
-                <div class="text-center">
-                  <div class="img-hover-zoom img-hover-zoom--colorize">
-                    <img
-                      class="shadow img-fluid"
-                      src="https://i.postimg.cc/KjykB1Mx/Tempest-Logo-removebg-preview.png"
-                      alt="Another Image zoom-on-hover effect"
-                    />
-                  </div>
-                </div>
-
-                <div class="card-body">
-                  <div class="clearfix mb-3"></div>
-
-                  <div class="my-2 text-dark text-center">
-                    <h1>TEMPEST GAMING</h1>
-                  </div>
-                  <div class="mb-3">
-                    <h2 class="text-uppercase text-dark role">Our passion for all things Gaming and need to offer gamers a specialist store has always been our focus. We love gaming and are gamers, and we insist on being knowledgeable and excited about the products we sell. Today we offer a wide range of games, consoles, hardware, accessories and related merchandise, at competitive pricing.
-                    </h2>
-                  </div>
-                  <div class="box">
-                    <div>
-                      <ul class="list-inline">
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6">
               <div class="card h-100 card shadow">
                 <div class="text-center">
@@ -81,11 +48,51 @@
                 </div>
               </div>
             </div>
+
+            <div class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6">
+              <div class="card h-100 card shadow">
+                <div class="text-center">
+                  <div class="img-hover-zoom img-hover-zoom--colorize">
+                    <img
+                      class="shadow img-fluid"
+                      src="https://i.postimg.cc/KjykB1Mx/Tempest-Logo-removebg-preview.png"
+                      alt="Another Image zoom-on-hover effect"
+                    />
+                  </div>
+                </div>
+
+                <div class="card-body">
+                  <div class="clearfix mb-3"></div>
+
+                  <div class="my-2 text-dark text-center">
+                    <h1>TEMPEST GAMING</h1>
+                  </div>
+                  <div class="mb-3">
+                    <br>
+                    <br>
+                    <h2 class="text-uppercase text-dark role">Our passion for all things Gaming and need to offer gamers a specialist store has always been our focus.
+                    <br>
+                    <br>
+                    We love gaming and are gamers, and we insist on being knowledgeable and excited about the products we sell.
+                    <br>
+                    <br>
+                    Today we offer a wide range of games, consoles, hardware, accessories and related merchandise, at competitive pricing.
+                    </h2>
+                  </div>
+                  <div class="box">
+                    <div>
+                      <ul class="list-inline">
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -93,12 +100,6 @@ export default {};
 </script>
 
 <style scoped>
-#aboutzone{
-  padding: 50px 0 0 0;
-}
-#logo {
-  width: 200px;
-}
 #main {
   background-image: linear-gradient(
     to right,
@@ -110,7 +111,7 @@ export default {};
   height: 100%;
   color: white;
   overflow-x: hidden;
-  padding: 60px 0 0 0;
+  padding: 70px 0 0 0;
 }
 .marg {
   margin-bottom: 10rem;
