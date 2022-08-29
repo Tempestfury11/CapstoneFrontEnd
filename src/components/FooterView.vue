@@ -39,7 +39,7 @@
               <div class="footer-logo">
                 <a href="/"
                   ><img
-                    src="https://i.postimg.cc/cCMbqXQd/Tempest-Logo-removebg-preview.png"
+                    src="https://i.postimg.cc/43fT7sdq/Templogo-removebg-preview.png"
                     class="img-fluid"
                     alt="logo"
                 /></a>
@@ -88,20 +88,25 @@
     </div>
   </footer>
 </template>
+
 <script>
 export default {};
 </script>
+
 <style>
+.container{
+  color:black
+}
 ul {
   margin: 0px;
   padding: 0px;
 }
 .footer-section {
-  background: transparent;
+  background: black;
   position: relative;
 }
 .footer-cta {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
 }
 .single-cta i {
   color: red;
@@ -114,13 +119,13 @@ ul {
   display: inline-block;
 }
 .cta-text h4 {
-  color: black;
+  color: white;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 2px;
 }
 .cta-text span {
-  color: black;
+  color: white;
   font-size: 15px;
 }
 .footer-content {
@@ -144,18 +149,18 @@ ul {
 .footer-text p {
   margin-bottom: 14px;
   font-size: 14px;
-  color: black;
+  color: white;
   line-height: 28px;
 }
 .footer-social-icon span {
-  color: black;
+  color: white;
   display: block;
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 .footer-social-icon a {
-  color: black;
+  color: white;
   font-size: 16px;
   margin-right: 15px;
 }
@@ -167,31 +172,31 @@ ul {
   border-radius: 50%;
 }
 .facebook-bg {
-  background: black;
+  background: white;
   color: red;
 }
 .twitter-bg {
-  background: black;
+  background: white;
   color: red;
 }
 .google-bg {
-  background: black;
+  background: white;
   color: red;
 }
 .facebook-bg:hover  {
   background: red;
-  color: black;
+  color: white;
 }
 .twitter-bg:hover  {
   background: red;
-  color: black;
+  color: white;
 }
 .google-bg:hover  {
   background: red;
-  color: black;
+  color: white;
 }
 .footer-widget-heading h3 {
-  color: black;
+  color: white;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 40px;
@@ -216,7 +221,7 @@ ul {
   color: red;
 }
 .footer-widget ul li a {
-  color: black;
+  color: white;
   text-transform: capitalize;
 }
 .subscribe-form {
@@ -226,9 +231,9 @@ ul {
 .subscribe-form input {
   width: 100%;
   padding: 14px 28px;
-  background: black;
+  background: white;
   border: 1px solid red;
-  color: black;
+  color: white;
 }
 .subscribe-form button {
   position: absolute;
@@ -239,7 +244,7 @@ ul {
   top: 0;
 }
 .subscribe-form button i {
-  color: black;
+  color: white;
   font-size: 22px;
   transform: rotate(-6deg);
 }
@@ -250,7 +255,7 @@ ul {
 .copyright-text p {
   margin: 0;
   font-size: 14px;
-  color: black;
+  color: white;
 }
 .copyright-text p a {
   color: red;

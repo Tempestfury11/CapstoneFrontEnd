@@ -1,25 +1,25 @@
 <template>
   <div class="col-md-4 col-lg-3 col-xm-12 col-sm-6">
-    <section class="card-content">
+    <section class="card-content" v-for="(products,index) in products" :key="index">
       <div class="card-content">
         <div class="card">
           <div class="layer"></div>
           <div class="content">
             <img
-              :src="product.img"
+              :src="products.img"
               alt="productImage"
-              id="food-img"
+              id="item-img"
               class="img-fluid image"
             />
             <br />
             <div class="details">
-              <span>{{ product.title }}</span>
+              <span>{{ products.title }}</span>
               <br />
-              <router-link
+              <!-- <router-link
                 :to="{ name: 'singleProduct', params: { id: product.id } }"
               >
                 <button class="btn-grad">View Product</button>
-              </router-link>
+              </router-link> -->
             </div>
           </div>
         </div>
@@ -28,9 +28,17 @@
   </div>
 </template>
 
-<script scoped>
+<script>
 export default {
   props: ["product"],
+  mounted() {
+    this.$store.dispatch("getproducts");
+  },
+  computed: {
+    products() {
+      return this.$store.state.products;
+    },
+  },
 };
 </script>
 
@@ -38,7 +46,6 @@ export default {
 a{
   text-decoration: none
 }
-
 .btn-grad {
   background-image: linear-gradient(
     to right,
@@ -57,17 +64,14 @@ a{
   border-radius: 10px;
   font-size: 12px;
 }
-
 .btn-grad:hover {
   background-position: right center;
   color: #fff;
   text-decoration: none;
 }
-
-#food-img {
+#item-img {
   object-fit: cover;
 }
-
 .card-content {
   margin: 50px auto 50px;
   display: grid;
