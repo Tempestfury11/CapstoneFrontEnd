@@ -90,14 +90,14 @@ export default {
   text-decoration: none;
 }
 #main {
-  background-image: linear-gradient(
-    to right,
-  );
+  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
-  color: black;
+  overflow-x: hidden;
+  padding: 100px 0;
+  text-align: center;
 }
 #loginzone {
   padding: 70px 0;

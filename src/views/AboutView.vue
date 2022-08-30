@@ -1,6 +1,6 @@
 <template>
     <div id="main" class="margi">
-      <div class="container marge text-center text-dark">
+      <div class="container marge text-center text-light">
         <h1>ABOUT US</h1>
         <div id="aboutus" class="container-fluid">
           <div id="aboutzone" class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
@@ -10,7 +10,7 @@
                   <div class="img-hover-zoom img-hover-zoom--colorize">
                     <img
                       class="shadow img-fluid"
-                      src="https://i.postimg.cc/y6GZB9md/LS2.jpg"
+                      src="https://i.postimg.cc/TYpDSvQn/sushi1.jpg"
                       alt="Another Image zoom-on-hover effect"
                     />
                   </div>
@@ -19,11 +19,11 @@
                 <div class="card-body">
                   <div class="clearfix mb-3"></div>
 
-                  <div class="my-2 text-dark text-center">
+                  <div class="my-2 text-light text-center">
                     <h1>MARSHALINO JANKOWSKI</h1>
                   </div>
                   <div class="mb-3">
-                    <h2 class="text-uppercase text-dark text-center role">
+                    <h2 class="text-uppercase text-light text-center role">
                       Aspiring Web Developer
                     </h2>
                   </div>
@@ -31,16 +31,16 @@
                     <div>
                       <ul class="list-inline">
                         <li class="list-inline-item">
-                          <i class="fab fa-github text-dark"></i>
+                          <i class="fab fa-github text-light"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-linkedin-in text-dark"></i>
+                          <i class="fab fa-linkedin-in text-light"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-instagram text-dark"></i>
+                          <i class="fab fa-instagram text-light"></i>
                         </li>
                         <li class="list-inline-item">
-                          <i class="fab fa-twitter text-dark"></i>
+                          <i class="fab fa-twitter text-light"></i>
                         </li>
                       </ul>
                     </div>
@@ -55,7 +55,7 @@
                   <div class="img-hover-zoom img-hover-zoom--colorize">
                     <img
                       class="shadow img-fluid"
-                      src="https://i.postimg.cc/KjykB1Mx/Tempest-Logo-removebg-preview.png"
+                      src="https://i.postimg.cc/43fT7sdq/Templogo-removebg-preview.png"
                       alt="Another Image zoom-on-hover effect"
                     />
                   </div>
@@ -64,13 +64,13 @@
                 <div class="card-body">
                   <div class="clearfix mb-3"></div>
 
-                  <div class="my-2 text-dark text-center">
+                  <div class="my-2 text-light text-center">
                     <h1>TEMPEST GAMING</h1>
                   </div>
                   <div class="mb-3">
                     <br>
                     <br>
-                    <h2 class="text-uppercase text-dark role">Our passion for all things Gaming and need to offer gamers a specialist store has always been our focus.
+                    <h2 class="text-uppercase text-light role">Our passion for all things Gaming and need to offer gamers a specialist store has always been our focus.
                     <br>
                     <br>
                     We love gaming and are gamers, and we insist on being knowledgeable and excited about the products we sell.
@@ -104,15 +104,11 @@ export default {};
   padding: 50px 0 0 0;
 }
 #main {
-  background-image: linear-gradient(
-    to right,
-
-  );
+  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
-  color: white;
   overflow-x: hidden;
   padding: 100px 0;
   text-align: center;

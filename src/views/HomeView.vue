@@ -36,6 +36,16 @@ export default {
 </script>
 
 <style scoped>
+.home {
+  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow-x: hidden;
+  padding: 100px 0;
+  text-align: center;
+}
 .container{
   text-align: center;
   padding:100px;

@@ -104,16 +104,14 @@ export default {
 
 <style scoped>
 #main {
-  background-image: linear-gradient(
-    to right,
-  );
+  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
-  color: white;
   overflow-x: hidden;
-  padding: 100px 0 0 0;
+  padding: 100px 0;
+  text-align: center;
 }
 .btn-grad {
   background-image: linear-gradient(

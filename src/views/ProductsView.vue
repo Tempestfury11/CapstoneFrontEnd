@@ -1,26 +1,30 @@
 <template>
-  <div class="products">
+  <div class="main">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div id="card" v-for="(product, index) in products" :key="index">
-                    <div class="card">
-                    <p>{{ product.title }} </p>
-                    <p><span></span> R{{ product.price }}</p>
-                    <p>{{product.category}}</p>
-                    <p>{{ product.description }}</p>
-                    <img class="img-fluid" :src="product.img"/>
-                    </div>
-                </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-4" v-for="(product, index) in products" :key="index">
+          <div class="card">
+            <div class="card-img">
+              <img id="image" class="img-fluid" :src="product.img" />
             </div>
+            <div class="card-info">
+              <p class="text-title">
+                {{ product.title }}
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="text-title">R{{ product.price }}</span>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-mounted() {
+  mounted() {
     this.$store.dispatch("getproducts");
   },
   computed: {
@@ -28,9 +32,96 @@ mounted() {
       return this.$store.state.products;
     },
   },
-}
+};
 </script>
 
-<style>
+<style scoped>
+#image {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+}
+.main {
+  background-image: url("https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow-x: hidden;
+  padding: 100px 0;
+  padding-left: 100px;
+  text-align: center;
+  justify-content: center;
+}
 
+.card {
+  width: 20vw;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.8em;
+  background: grey;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.card-img {
+  background-color: transparent;
+  height: 40%;
+  width: 100%;
+  border-radius: 0.5rem;
+  transition: 0.3s ease;
+}
+
+.card-info {
+  padding-top: 10%;
+}
+
+svg {
+  width: 20px;
+  height: 20px;
+}
+
+.card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid black;
+}
+
+/*Text*/
+.text-title {
+  font-weight: 900;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.text-body {
+  font-size: 0.9em;
+  padding-bottom: 10px;
+}
+
+/*Button*/
+.card-button {
+  border: 1px solid #252525;
+  display: flex;
+  padding: 0.3em;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: 0.3s ease-in-out;
+}
+
+/*Hover*/
+.card-img:hover {
+  transform: translateY(-15%);
+  box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px,
+    rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+}
+
+.card-button:hover {
+  border: 1px solid #ffcaa6;
+  background-color: #ffcaa6;
+}
 </style>
