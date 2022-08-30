@@ -3,12 +3,12 @@
     <div class="container">
       <div class="row justify-content-center">
         <div id="registerzone" class="col-lg-6 col-md-6 col-sm-6">
-          <h2 class="text-center">Register Your Account</h2>
-          <div id="cardzone" class="card shadow text-dark">
-            <div class="card-title text-center text-dark border-bottom">
+          <h2 class="text-center text-light">Register Your Account</h2>
+          <div id="cardzone" class="card shadow text-light">
+            <div class="card-title text-center text-light border-bottom">
               <h2>Register</h2>
             </div>
-            <div class="card-body text-center text-dark">
+            <div class="card-body text-center text-light">
               <form method="POST" @submit="registerUser">
                 <div class="mb-3">
                   <label for="firstName" class="form-label">First Name</label>

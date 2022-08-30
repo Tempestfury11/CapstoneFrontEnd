@@ -8,8 +8,8 @@
           alt=""/>
           <br>
         <div class="container justify-content-center">
-          <router-link to="/admin/users"><button class="btn btn">View Users</button></router-link>
-          <router-link to="/admin/products"><button class="btn btn">View Products</button></router-link>
+          <router-link :to="{name : 'adminUsers'}"><button class="btn btn">View Users</button></router-link>
+          <router-link :to="{name : 'adminProducts'}"><button class="btn btn">View Products</button></router-link>
         </div>
     </div>
   </div>

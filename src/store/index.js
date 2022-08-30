@@ -144,9 +144,9 @@ getproducts: async (context) => {
 },
 
 // get single product  
-getproduct: async (context, product_id) => {
+getproduct: async (context, id) => {
   // Product_id = 1
-  fetch(TempestGamingUrl+'products/' + product_id)
+  fetch(TempestGamingUrl+'products/' + id)
   .then((res) => res.json())
   .then((data) =>{
   console.log(data)
@@ -210,6 +210,7 @@ deleteProduct: async (context, product_id) => {
 
 
   },
+
   modules: {
   }
 })

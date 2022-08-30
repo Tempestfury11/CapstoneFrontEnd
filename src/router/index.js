@@ -28,20 +28,25 @@ const routes = [
     component: () => import('../views/ProductsView.vue')
   },
   {
+    path: '/products/:id',
+    name: 'product',
+    component: () => import('../views/ProductView.vue')
+  },
+  {
     path: '/admin',
     name: 'admin',
     component: () => import('../views/AdminView.vue')
   },
-  // {
-  //   path: '/admin/users',
-  //   name: 'admin',
-  //   component: () => import('../views/UsersAdminView.vue')
-  // },
-  // {
-  //   path: '/admin/products',
-  //   name: 'admin',
-  //   component: () => import('../views/ProductsAdminView.vue')
-  // },
+  {
+    path: '/admin/users',
+    name: 'adminUsers',
+    component: () => import('../views/UsersAdminView.vue')
+  },
+  {
+    path: '/admin/products',
+    name: 'adminProducts',
+    component: () => import('../views/ProductsAdminView.vue')
+  },
   {
     path: '/contact',
     name: 'contact',

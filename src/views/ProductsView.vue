@@ -8,12 +8,17 @@
               <img id="image" class="img-fluid" :src="product.img" />
             </div>
             <div class="card-info">
-              <p class="text-title">
+              <p class="text-title text-light">
                 {{ product.title }}
               </p>
             </div>
             <div class="card-footer">
-              <span class="text-title">R{{ product.price }}</span>
+              <span class="text-title text-light">R{{ product.price }}</span>
+              <router-link
+                :to="{ name: 'product', params: { id: product.id } }"
+              >
+              <button class="btn-grad">View Product</button>
+              </router-link>
             </div>
           </div>
         </div>
@@ -26,6 +31,7 @@
 export default {
   mounted() {
     this.$store.dispatch("getproducts");
+    this.$store.dispatch("getproduct");
   },
   computed: {
     products() {
@@ -36,6 +42,31 @@ export default {
 </script>
 
 <style scoped>
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
+  );
+  margin: 10px;
+  /* padding: 15px 45px; */
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
 #image {
   width: 100%;
   height: 150px;
@@ -59,10 +90,9 @@ export default {
   max-width: 100%;
   margin-bottom: 1rem;
   padding: 0.8em;
-  background: grey;
+  background: transparent;
   position: relative;
   overflow: visible;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .card-img {
@@ -88,7 +118,7 @@ svg {
   justify-content: space-between;
   align-items: center;
   padding-top: 10px;
-  border-top: 1px solid black;
+  border-top: 2px solid white;
 }
 
 /*Text*/
@@ -105,7 +135,7 @@ svg {
 
 /*Button*/
 .card-button {
-  border: 1px solid #252525;
+  border: 1px solid white;
   display: flex;
   padding: 0.3em;
   cursor: pointer;

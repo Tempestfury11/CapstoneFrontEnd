@@ -12,13 +12,13 @@
           <th scope="col">Quantity</th>
           <th scope="col">Price</th>
           <th scope="col">
-            <button
+            <!-- <button
               data-bs-target="#AddProductModal"
               data-bs-toggle="modal"
               class="btn-grad"
             >
               ADD
-            </button>
+            </button> -->
           </th>
         </tr>
       </thead>
@@ -31,23 +31,23 @@
           <th scope="row">{{ product.quantity }}</th>
           <th scope="row">R{{ product.price }}</th>
           <th scope="row">
-            <button
+            <!-- <button
               data-bs-toggle="modal"
               :data-bs-target="`#editProduct` + product.id"
               class="btn-grad"
             >
               Edit
-            </button>
-            <button
+            </button> -->
+            <!-- <button
               data-bs-toggle="modal"
               :data-bs-target="`#deleteProduct` + product.id"
               class="btn-grad"
             >
               Delete
-            </button>
+            </button> -->
           </th>
-          <EditProductModal :product="product" />
-          <DeleteProductModal :product="product" />
+          <!-- <EditProductModal :product="product" />
+          <DeleteProductModal :product="product" /> -->
         </tr>
       </tbody>
     </table>
@@ -57,14 +57,14 @@
 </template>
 
 <script>
-import EditProductModal from "../components/EditProductModal";
-import DeleteProductModal from "../components/DeleteProductModal.vue";
-import AddProductModal from "../components/AddProductModal.vue";
+// import EditProductModal from "../components/EditProductModal";
+// import DeleteProductModal from "../components/DeleteProductModal.vue";
+// import AddProductModal from "../components/AddProductModal.vue";
 
 export default {
-  components: { EditProductModal, DeleteProductModal, AddProductModal },
+  // components: { EditProductModal, DeleteProductModal, AddProductModal },
   mounted() {
-    this.$store.dispatch("getProducts");
+    this.$store.dispatch("getproducts");
   },
   computed: {
     allProducts() {
@@ -75,6 +75,16 @@ export default {
 </script>
 
 <style scoped>
+#main {
+  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow-x: hidden;
+  padding: 100px 0;
+  text-align: center;
+}
 .btn-grad {
   background-image: linear-gradient(
     to right,

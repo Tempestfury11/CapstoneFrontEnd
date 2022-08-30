@@ -3,14 +3,14 @@
     <div class="container-fluid">
       <div class="row justify-content-center">
         <div id="loginzone" class="col-lg-4 col-md-6 col-sm-6">
-          <h2 class="text-center">Sign-in To Your Account</h2>
+          <h2 class="text-center text-light">Sign-in To Your Account</h2>
           <div id="cardzone" class="card shadow text-white">
             <div class="card-title text-center border-bottom">
-              <h2 class="text-dark text-center">Login</h2>
+              <h2 class="text-light text-center">Login</h2>
             </div>
             <div class="card-body">
               <form method="PATCH" @submit="loginUser">
-                <div class="mb-4 text-dark text-center">
+                <div class="mb-4 text-light text-center">
                   <label for="email" class="form-label">Email</label>
                   <input
                     type="text"
@@ -20,7 +20,7 @@
                     name="email"
                   />
                 </div>
-                <div class="mb-4 text-dark text-center">
+                <div class="mb-4 text-light text-center">
                   <label for="password" class="form-label">Password</label>
                   <input
                     type="password"

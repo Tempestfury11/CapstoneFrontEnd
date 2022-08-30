@@ -1,6 +1,6 @@
 <template>
   <div id="main" class="users container-fluid">
-    <h1>All Users</h1>
+    <h1 class="text-white">All Users</h1>
     <div style="overflow-x:auto">
       <table class="table text-white">
       <thead>
@@ -8,28 +8,22 @@
           <th scope="col">ID</th>
           <th scope="col">First Name</th>
           <th scope="col">Last Name</th>
-          <th scope="col">Gender</th>
-          <th scope="col">Address</th>
-          <th scope="col">Cart</th>
-          <th scope="col">Phone Number</th>
-          <th scope="col">Date</th>
           <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
           <th scope="col">Password</th>
+          <th scope="col">Cart</th>
           <th scope="col">User Role</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="user in allUsers" :key="user.id">
+        <tr v-for="user in users" :key="user">
           <th scope="row">{{ user.id }}</th>
-          <th scope="row">{{ user.firstName }}</th>
-          <th scope="row">{{ user.lastName }}</th>
-          <th scope="row">{{ user.gender }}</th>
-          <th scope="row">{{ user.address }}</th>
-          <th scope="row">{{ user.cart }}</th>
-          <th scope="row">{{ user.phoneNumber }}</th>
-          <th scope="row">{{ user.dateCreated }}</th>
+          <th scope="row">{{ user.firstName}}</th>
+          <th scope="row">{{ user.lastName}}</th>
           <th scope="row">{{ user.email }}</th>
-          <th scope="row">{{ user.userPassword }}</th>
+          <th scope="row">{{ user.phoneNo}}</th>
+          <th scope="row">{{ user.password }}</th>
+          <th scope="row">{{ user.cart}}</th>
           <th scope="row">{{ user.userRole }}</th>
         </tr>
       </tbody>
@@ -41,17 +35,28 @@
 <script>
 export default {
   mounted() {
-    this.$store.dispatch("getAllUsers");
+    this.$store.dispatch("getusers");
   },
   computed: {
-    allUsers() {
-      return this.$store.state.allUsers;
+    users() {
+      return this.$store.state.users;
     },
   },
 };
 </script>
 
 <style scoped>
+#main {
+  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow-x: hidden;
+  padding: 100px 0;
+  text-align: center;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;

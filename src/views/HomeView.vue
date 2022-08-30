@@ -1,9 +1,7 @@
 <template>
   <div class="home">
-    <div class="container justify-content-center text-center">
-      <h1>TEMPEST GAMING</h1>
-      <br>
-      <img id="logo" class="img-fluid" src="https://i.postimg.cc/KjykB1Mx/Tempest-Logo-removebg-preview.png" alt="">
+    <div class="container justify-content-center">
+      <img id="logo" class="img-fluid" src="https://i.postimg.cc/6qL4VBhv/Templogo-removebg-preview.png" alt="">
     </div>
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
