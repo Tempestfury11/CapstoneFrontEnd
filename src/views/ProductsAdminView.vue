@@ -1,6 +1,6 @@
 <template>
   <div id="main" class="products container-fluid">
-    <h1>All Products</h1>
+    <h1 class="text-light">All Products</h1>
       <div style="overflow-x:auto">
             <table class="table text-white">
       <thead>
@@ -9,45 +9,43 @@
           <th scope="col">Product Name</th>
           <th scope="col">Product Image</th>
           <th scope="col">Description</th>
-          <th scope="col">Quantity</th>
           <th scope="col">Price</th>
           <th scope="col">
-            <!-- <button
+            <button
               data-bs-target="#AddProductModal"
               data-bs-toggle="modal"
               class="btn-grad"
             >
               ADD
-            </button> -->
+            </button>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="product in allProducts" :key="product.id">
           <th scope="row">{{ product.id }}</th>
-          <th scope="row">{{ product.prodName }}</th>
-          <th scope="row">{{ product.prodUrl }}</th>
+          <th scope="row">{{ product.title }}</th>
+          <th scope="row">{{ product.img }}</th>
           <th scope="row">{{ product.description }}</th>
-          <th scope="row">{{ product.quantity }}</th>
           <th scope="row">R{{ product.price }}</th>
           <th scope="row">
-            <!-- <button
+            <button
               data-bs-toggle="modal"
               :data-bs-target="`#editProduct` + product.id"
               class="btn-grad"
             >
               Edit
-            </button> -->
-            <!-- <button
+            </button>
+            <button
               data-bs-toggle="modal"
               :data-bs-target="`#deleteProduct` + product.id"
               class="btn-grad"
             >
-              Delete
-            </button> -->
+             Delete
+            </button>
           </th>
-          <!-- <EditProductModal :product="product" />
-          <DeleteProductModal :product="product" /> -->
+          <EditProductModal :product="product" />
+          <DeleteProductModal :product="product" />
         </tr>
       </tbody>
     </table>
@@ -57,12 +55,12 @@
 </template>
 
 <script>
-// import EditProductModal from "../components/EditProductModal";
-// import DeleteProductModal from "../components/DeleteProductModal.vue";
-// import AddProductModal from "../components/AddProductModal.vue";
+import EditProductModal from "../components/EditProductModal";
+import DeleteProductModal from "../components/DeleteProductModal.vue";
+import AddProductModal from "../components/AddProductModal.vue";
 
 export default {
-  // components: { EditProductModal, DeleteProductModal, AddProductModal },
+  components: { EditProductModal, DeleteProductModal, AddProductModal },
   mounted() {
     this.$store.dispatch("getproducts");
   },
@@ -76,7 +74,7 @@ export default {
 
 <style scoped>
 #main {
-  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
+  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -88,9 +86,9 @@ export default {
 .btn-grad {
   background-image: linear-gradient(
     to right,
-    #e52d27 0%,
-    #b31217 51%,
-    #e52d27 100%
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
   );
   margin: 10px;
   padding: 10px 15px;

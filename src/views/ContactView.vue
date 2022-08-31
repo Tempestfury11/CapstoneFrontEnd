@@ -5,7 +5,7 @@
       <div class="contact-form-wrapper d-flex justify-content-center">
         <form
           action="https://formspree.io/f/mvoleqaw"
-          class="contact-form card shadow"
+          class="contact-form card"
         >
           <p class="description">
             Feel free to contact us if you need any assistance, any help or
@@ -81,7 +81,7 @@ export default {};
 }
 
 #main {
-  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
+  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -100,6 +100,7 @@ export default {};
   border-radius: 12px;
   max-width: 400px;
   background-color: transparent;
+  box-shadow: 0 0 20px #eee;
 }
 
 .contact-form textarea {

@@ -4,12 +4,12 @@
       <div class="row justify-content-center">
         <div id="loginzone" class="col-lg-4 col-md-6 col-sm-6">
           <h2 class="text-center text-light">Sign-in To Your Account</h2>
-          <div id="cardzone" class="card shadow text-white">
+          <div id="cardzone" class="card text-white">
             <div class="card-title text-center border-bottom">
               <h2 class="text-light text-center">Login</h2>
             </div>
             <div class="card-body">
-              <form method="PATCH" @submit="loginUser">
+              <form method="POST" @submit.prevent="login">
                 <div class="mb-4 text-light text-center">
                   <label for="email" class="form-label">Email</label>
                   <input
@@ -25,7 +25,7 @@
                   <input
                     type="password"
                     required
-                    v-model="userPassword"
+                    v-model="password"
                     class="form-control"
                     name="password"
                   />
@@ -34,6 +34,12 @@
                   <button type="submit" class="btn btn-grad">
                     Login
                   </button>
+                  <div v-if="user">
+                        Yes
+                  </div>
+                  <div v-else>
+                    This kak
+                  </div>
                 </div>
               </form>
             </div>
@@ -46,22 +52,25 @@
 
 <script>
 export default {
-  data() {
-    return {
-      email: null,
-      password: null,
-    };
-  },
-  methods: {
-    loginUser(e) {
-      e.preventDefault();
-      const user = {
-        email: this.email,
-        password: this.password,
-      };
-      this.$store.dispatch("loginUser", user);
-    },
-  },
+ data(){
+// insert empty object into form
+    return{
+       email: '',
+       password: '',
+    }
+},
+methods: {
+login(){
+  const payload = {
+    email: this.email,
+    password: this.password
+  }
+this.$store.dispatch('login', payload)
+},
+user(){
+    return this.$store.state.user
+}
+}
 };
 </script>
 
@@ -69,12 +78,11 @@ export default {
 .btn-grad {
   background-image: linear-gradient(
     to right,
-    #e52d27 0%,
-    #b31217 51%,
-    #e52d27 100%
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
   );
   margin: 10px;
-  padding: 10px 15px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
@@ -82,15 +90,17 @@ export default {
   color: white;
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
-  font-size: 12px;
+  display: block;
+  text-decoration: none;
 }
+
 .btn-grad:hover {
-  background-position: right center;
+  background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
 }
 #main {
-  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
+  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -106,5 +116,6 @@ export default {
   padding: 50px 50px;
   border-radius: 20px;
   background: transparent;
+  box-shadow: 0 0 20px #eee;
 }
 </style>

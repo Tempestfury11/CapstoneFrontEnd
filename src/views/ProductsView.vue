@@ -2,7 +2,7 @@
   <div class="main">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-sm-4" v-for="(product, index) in products" :key="index">
+        <div class="col-sm-3" v-for="(product, index) in products" :key="index">
           <div class="card">
             <div class="card-img">
               <img id="image" class="img-fluid" :src="product.img" />
@@ -13,12 +13,14 @@
               </p>
             </div>
             <div class="card-footer">
-              <span class="text-title text-light">R{{ product.price }}</span>
-              <router-link
-                :to="{ name: 'product', params: { id: product.id } }"
-              >
-              <button class="btn-grad">View Product</button>
-              </router-link>
+              <div class="btn-container">
+                <span class="text-title text-light">R{{ product.price }}</span>
+                <router-link
+                  :to="{ name: 'product', params: { id: product.id } }"
+                >
+                  <button class="btn btn-grad">View Product</button>
+                </router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -42,6 +44,14 @@ export default {
 </script>
 
 <style scoped>
+.btn-container{
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+}
 .btn-grad {
   background-image: linear-gradient(
     to right,
@@ -50,7 +60,6 @@ export default {
     #000000 100%
   );
   margin: 10px;
-  /* padding: 15px 45px; */
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
@@ -59,6 +68,7 @@ export default {
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   display: block;
+  text-decoration: none;
 }
 
 .btn-grad:hover {
@@ -73,17 +83,18 @@ export default {
   border-radius: 10px;
 }
 .main {
-  background-image: url("https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg");
+  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
   overflow-x: hidden;
   padding: 100px 0;
-  padding-left: 100px;
   text-align: center;
+  align-content: center;
   justify-content: center;
 }
+
 
 .card {
   width: 20vw;
@@ -93,6 +104,7 @@ export default {
   background: transparent;
   position: relative;
   overflow: visible;
+  box-shadow: 0 0 20px #eee;
 }
 
 .card-img {
@@ -119,6 +131,9 @@ svg {
   align-items: center;
   padding-top: 10px;
   border-top: 2px solid white;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
 }
 
 /*Text*/
@@ -137,7 +152,7 @@ svg {
 .card-button {
   border: 1px solid white;
   display: flex;
-  padding: 0.3em;
+  padding: auto;
   cursor: pointer;
   border-radius: 50px;
   transition: 0.3s ease-in-out;

@@ -4,12 +4,12 @@
       <div class="row justify-content-center">
         <div id="registerzone" class="col-lg-6 col-md-6 col-sm-6">
           <h2 class="text-center text-light">Register Your Account</h2>
-          <div id="cardzone" class="card shadow text-light">
+          <div id="cardzone" class="card text-light">
             <div class="card-title text-center text-light border-bottom">
               <h2>Register</h2>
             </div>
             <div class="card-body text-center text-light">
-              <form method="POST" @submit="registerUser">
+              <form method="POST" @submit.prevent="register">
                 <div class="mb-3">
                   <label for="firstName" class="form-label">First Name</label>
                   <input
@@ -86,25 +86,22 @@ export default {
     };
   },
   methods: {
-    registerUser(event) {
-      event.preventDefault();
-      const user = {
+    register() {
+      this.$store.dispatch('register', {
         firstName: this.firstName,
         lastName: this.lastName,
-        phoneNo: this.phoneNo,
         email: this.email,
+        phoneNO: this.phoneNO,
         password: this.password,
-        cart: this.cart,
-      };
-      this.$store.dispatch("registerUser", user);
-    },
-  },
+      });
+  }
+  }
 };
 </script>
 
 <style scoped>
 #main {
-  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
+  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -116,12 +113,11 @@ export default {
 .btn-grad {
   background-image: linear-gradient(
     to right,
-    #e52d27 0%,
-    #b31217 51%,
-    #e52d27 100%
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
   );
   margin: 10px;
-  padding: 10px 15px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
@@ -129,10 +125,12 @@ export default {
   color: white;
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
-  font-size: 12px;
+  display: block;
+  text-decoration: none;
 }
+
 .btn-grad:hover {
-  background-position: right center;
+  background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
 }
@@ -143,5 +141,6 @@ export default {
   padding: 20px 50px;
   border-radius: 20px;
   background-color: transparent;
+  box-shadow: 0 0 20px #eee;
 }
 </style>

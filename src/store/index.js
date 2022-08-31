@@ -6,17 +6,22 @@ const TempestGamingUrl = 'https://marshalinocapstone.herokuapp.com/';
 export default createStore({
   state: {
     users: null,
+    user: null,
     products: null,
     product: null,
     message: null
   },
   getters: {
     getUsers: state => state.users,
-    getProducts: state => state.products
+    getProducts: state => state.products,
+    getUser: state => state.user,
   },
   mutations: {
     setUsers(state, users) {
       state.users = users
+    },
+    setUser(state, user) {
+      state.user = user
     },
     setProducts(state, products) {
       state.products = products
@@ -50,27 +55,25 @@ export default createStore({
         .then((json) => context.commit("setUser", json, e.message = "Registration was successfull."))
         .catch(e => context.commit('setMessage', e.message = "Email/Phone Number Already Exists."));
     },
-
     // login
-    login: async (context, payload) => {
-      const { email, password } = payload;
-      let result = await fetch(TempestGamingUrl + "login", {
+    login (context, payload){
+      // console.log(payload);
+    fetch(TempestGamingUrl + "login", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
+        body: JSON.stringify(payload),
       })
-      if (result) {
-        router.push({ name: "home" })
+     .then((response) => response.json())
+     .then((data) => {
+      if (data.msg === "Login Failed.") {
+      } else {
+        context.commit("setUser", payload);
+        console.log("sign in");
+        router.push({name: "home"})
       }
-      if (!result) {
-        alert('Password or Email is wrong. Please try again.')
-        router.push({ name: "login" })
-      }
+     })
     },
 
     // get users
@@ -133,7 +136,7 @@ export default createStore({
     // _____________
     // get products
 getproducts: async (context) => {
-  let res = await fetch('https://marshalinocapstone.herokuapp.com/products');
+  let res = await fetch('http://localhost:4000/products');
   let data = await res.json();
   let result = data.results;
   if(result){
@@ -159,7 +162,7 @@ getproduct: async (context, id) => {
   const { title, price, category, description, img, } = payload;
   
   try{
-    await fetch(TempestGamingUrl+"products", {
+    await fetch("http://localhost:4000/products", {
     method: "POST",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
@@ -207,8 +210,6 @@ deleteProduct: async (context, product_id) => {
           context.dispatch("getProducts");
         });
     },
-
-
   },
 
   modules: {

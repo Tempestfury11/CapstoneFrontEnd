@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <div class="container justify-content-center">
-      <img id="logo" class="img-fluid" src="https://i.postimg.cc/6qL4VBhv/Templogo-removebg-preview.png" alt="">
     </div>
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -12,7 +11,7 @@
           <img src="https://i.postimg.cc/J7bFnB8p/wallpaperflare-com-wallpaper.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="https://i.postimg.cc/PJR4pKFp/steam-wallpaper-by-alyama123-d9gsvdb-pre.jpg" class="d-block w-100" alt="...">
+          <img src="https://i.postimg.cc/XJqzPnsR/Steam-logo-PNG15.png" class="d-block w-100" alt="...">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -35,7 +34,7 @@ export default {
 
 <style scoped>
 .home {
-  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
+  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

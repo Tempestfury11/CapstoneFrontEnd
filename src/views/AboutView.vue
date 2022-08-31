@@ -4,7 +4,7 @@
         <h1>ABOUT US</h1>
         <div id="aboutus" class="container-fluid">
           <div id="aboutzone" class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2">
-            <div class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6">
+            <div id="card" class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6">
               <div class="card h-100 card shadow">
                 <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
@@ -49,7 +49,7 @@
               </div>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6">
+            <div id="card" class="col-12 col-md-6 col-lg-6 col-xm-12 col-sm-6">
               <div class="card h-100 card shadow">
                 <div class="text-center">
                   <div class="img-hover-zoom img-hover-zoom--colorize">
@@ -104,7 +104,7 @@ export default {};
   padding: 50px 0 0 0;
 }
 #main {
-  background-image:url('https://i.postimg.cc/MZsP5fwK/Texture-Background-Dark-Spot-HD.jpg');
+  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -123,9 +123,13 @@ export default {};
 h1 {
   font-size: 1.5rem;
 }
+#card{
+  box-shadow: 0 0 20px #eee;
+  border-radius: 1rem;
+}
 .card {
   background: transparent;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px #eee;
   border: 1;
   border-radius: 1rem;
 }
