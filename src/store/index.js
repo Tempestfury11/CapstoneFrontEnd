@@ -35,9 +35,10 @@ export default createStore({
     // register
     register: async (context, payload) => {
       // fecth from body
-      const { firstName, lastName, email, phoneNO, password } = payload;
+      const { firstName, lastName, email, phoneNo, password } = payload;
       // fetch method from api
       await fetch("https://marshalinocapstone.herokuapp.com/register", {
+      // await fetch("https://marshalinocapstone.herokuapp.com/register", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -47,13 +48,14 @@ export default createStore({
           firstName: firstName,
           lastName: lastName,
           email: email,
-          phoneNO: phoneNO,
+          phoneNo: phoneNo,
           password: password,
         }),
       })
         .then((response) => response.json())
-        .then((json) => context.commit("setUser", json, e.message = "Registration was successfull."))
-        .catch(e => context.commit('setMessage', e.message = "Email/Phone Number Already Exists."));
+        .then((data) => {
+          console.log(data);
+        })
     },
     // login
     login (context, payload){
@@ -182,6 +184,22 @@ getproduct: async (context, id) => {
   }catch(e) {
   console.log(e);
 }
+},
+editProduct: async (context, product) => {
+fetch("http://localhost:4000/products/" + product.id, {
+method: "PUT",
+// fetch data from form
+body: JSON.stringify(product),
+headers: {
+  "Content-type": "application/json; charset=UTF-8",
+},
+})
+.then((res) => res.json())
+.then((data) => {
+// alert(data.msg);
+console.log(data);
+context.dispatch("getproducts");
+});
 },
 
 // delete product

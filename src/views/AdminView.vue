@@ -4,7 +4,7 @@
         <h2>WELCOME ADMINS</h2>
         <img class="img-fluid"
           id="logo"
-          src="https://i.postimg.cc/Mpddn0N0/Tempest-Logo-removebg-preview.png"
+          src="https://i.postimg.cc/SQt0Lk09/Templogo-removebg-preview.png"
           alt=""/>
           <br>
         <div class="container justify-content-center">

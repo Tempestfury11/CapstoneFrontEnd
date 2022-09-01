@@ -1,20 +1,34 @@
 <template>
   <div id="main" class="product">
-    <div class="container justify-center align-center">
-      <div class="row justify-center align-center">
-        <div class="col justify-center align-center">
-          <div class="card justify-center align-center" >
-            <p class="title">{{ game[0].title }}</p>
-            <div class="pricecontainer">
-              <p class="pricedescriptor"><img id="image" class="img-fluid" :src="game[0].img" /></p>
-              <p class="price">R{{ game[0].price}}</p>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col justify-content-center">
+          <div class="card justify-content-center">
+            <div class="card-img">
+              {{ game[0].category }}
             </div>
-            <p class="includes">{{game[0].category}}</p>
-            <ul class="benefitlist">
-              <p>{{ game[0].description}}</p>
-            </ul>
-            <div class="btncontainer">
-              <button>Select This Plan</button>
+            <div class="card-info">
+              <p class="text-title text-light">
+                {{ game[0].description }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col justify-content-right">
+          <div class="card justify-content-center">
+            <div class="card-img">
+              <img id="image" class="img-fluid" :src="game[0].img" />
+            </div>
+            <div class="card-info">
+              <p class="text-title text-light">
+                {{ game[0].title }}
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="btn-container">
+                <span class="text-title text-light">R{{ game[0].price }}</span>
+                <button class="btn btn-grad">Add To Cart</button>
+              </div>
             </div>
           </div>
         </div>
@@ -38,7 +52,12 @@ export default {
 
 <style scoped>
 #main {
-  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -47,75 +66,116 @@ export default {
   padding: 100px 0;
   text-align: center;
 }
+.btn-container {
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+}
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
+  );
+  margin: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  text-decoration: none;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+#image {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+}
 
 .card {
-  width: 380px;
-  height: 508px;
-  background: rgb(45, 45, 45);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  transition-duration: 0.5s;
+  width: 20vw;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.8em;
+  background: transparent;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 0 20px #eee;
 }
-.title {
-  text-align: center;
-  margin-top: 0.5em;
-  font-weight: bold;
-  font-size: x-large;
-  color: rgb(200, 200, 200);
-}
-.pricecontainer {
+
+.card-img {
+  background-color: transparent;
+  height: 40%;
   width: 100%;
-  /* margin-top: 0.7em; */
-  background-color: rgb(30, 30, 30);
-  box-shadow: inset 0px 0px 2em rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  transition: 0.3s ease;
 }
 
-.price {
+.card-info {
+  padding-top: 10%;
+}
+
+svg {
+  width: 20px;
+  height: 20px;
+}
+
+.card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 2px solid white;
   text-align: center;
-  color: rgb(180, 180, 180);
-  font-size: x-large;
-  font-weight: bold;
-  /* padding: 0.75em 0 0 0; */
+  align-content: center;
+  justify-content: center;
 }
 
-.pricedescriptor {
-  text-align: center;
-  color: rgb(118, 118, 118);
-  font-size: medium;
-  /* padding: 0 0 1em 0; */
+/*Text*/
+.text-title {
+  font-weight: 900;
+  font-size: 1.2em;
+  line-height: 1.5;
 }
 
-.includes {
-  text-align: center;
-  color: rgb(110, 110, 110);
-  margin-top: 0.6em;
-  font-size: medium;
-  font-weight: bold;
+.text-body {
+  font-size: 0.9em;
+  padding-bottom: 10px;
 }
 
-.benefitlist li {
-  color: rgb(150, 150, 150);
-  font-size:xx-small;
-  text-align: center;
+/*Button*/
+.card-button {
+  border: 1px solid white;
+  display: flex;
+  padding: auto;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: 0.3s ease-in-out;
 }
 
-
-.btncontainer {
-  text-align: center;
+/*Hover*/
+.card-img:hover {
+  transform: translateY(-15%);
+  box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px,
+    rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
 }
 
-.btncontainer button {
-  margin-top: 1em;
-  padding: 0.5em 0.8em 0.5em 0.8em;
-  border-style: none;
-  border-radius: 1000000px;
-  color: rgb(239, 239, 239);
-  font-weight: bold;
-  background-image: linear-gradient(45deg, #fe4fe1 0%, #3f00fe 100%);
-  transition: box-shadow 0.15s ease-in-out;
-}
-
-.btncontainer button:hover {
-  box-shadow: inset 0px 0px 5px rgb(0, 0, 0);
-  transition: box-shadow 0.15s ease-in-out;
+.card-button:hover {
+  border: 1px solid #ffcaa6;
+  background-color: #ffcaa6;
 }
 </style>

@@ -6,8 +6,9 @@
                 <h5 class="modal-title" :id="`editProductLabel`+product.id">Modal Title</h5>
                 <button type="button" :id="`editProductClose`+product.id" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body">
-                <form method="PUT" @submit="updateProduct">
+                <form method="PUT" @submit.prevent="editProduct">
                     <label class="form-label">ID</label>
                     <input type="number" class="form-control" :value="product.id" readonly>
                     <label class="form-label">Product Name</label>
@@ -35,17 +36,17 @@
 export default {
     props:['product'],
     methods:{
-        editProduct(e){
-            e.preventDefault();
+        editProduct(){
+            // e.preventDefault();
             let newProduct = {
                 id: this.product.id,
-                prodName: this.product.prodName,
-                prodUrl: this.product.prodUrl,
+                title: this.product.title,
+                img: this.product.img,
                 description: this.product.description,
-                quantity: this.product.quantity,
+                category: this.product.category,
                 price: this.product.price
             }
-            this.$store.dispatch('editProduct',newProduct);
+            this.$store.dispatch('editProduct',this.product);
             document.getElementById(`editProductClose`+this.product.id).click();
         }
     }

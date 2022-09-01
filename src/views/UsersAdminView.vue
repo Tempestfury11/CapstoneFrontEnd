@@ -11,8 +11,6 @@
           <th scope="col">Email</th>
           <th scope="col">Phone Number</th>
           <th scope="col">Password</th>
-          <th scope="col">Cart</th>
-          <th scope="col">User Role</th>
         </tr>
       </thead>
       <tbody>
@@ -23,8 +21,6 @@
           <th scope="row">{{ user.email }}</th>
           <th scope="row">{{ user.phoneNo}}</th>
           <th scope="row">{{ user.password }}</th>
-          <th scope="row">{{ user.cart}}</th>
-          <th scope="row">{{ user.userRole }}</th>
         </tr>
       </tbody>
     </table>

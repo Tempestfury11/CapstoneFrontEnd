@@ -14,15 +14,14 @@
             <button
               data-bs-target="#AddProductModal"
               data-bs-toggle="modal"
-              class="btn-grad"
-            >
+              class="btn-grad">
               ADD
             </button>
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="product in allProducts" :key="product.id">
+        <tr v-for="(product, index) in products" :key="index">
           <th scope="row">{{ product.id }}</th>
           <th scope="row">{{ product.title }}</th>
           <th scope="row">{{ product.img }}</th>
@@ -32,15 +31,13 @@
             <button
               data-bs-toggle="modal"
               :data-bs-target="`#editProduct` + product.id"
-              class="btn-grad"
-            >
+              class="btn-grad">
               Edit
             </button>
             <button
               data-bs-toggle="modal"
               :data-bs-target="`#deleteProduct` + product.id"
-              class="btn-grad"
-            >
+              class="btn-grad">
              Delete
             </button>
           </th>
@@ -65,7 +62,7 @@ export default {
     this.$store.dispatch("getproducts");
   },
   computed: {
-    allProducts() {
+    products() {
       return this.$store.state.products;
     },
   },

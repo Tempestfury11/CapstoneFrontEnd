@@ -95,7 +95,6 @@ a {
   justify-content: center;
 }
 
-
 .card {
   width: 20vw;
   max-width: 100%;

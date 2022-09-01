@@ -15,11 +15,6 @@
             <div class="details">
               <span>{{ products.title }}</span>
               <br />
-              <!-- <router-link
-                :to="{ name: 'singleProduct', params: { id: product.id } }"
-              >
-                <button class="btn-grad">View Product</button>
-              </router-link> -->
             </div>
           </div>
         </div>

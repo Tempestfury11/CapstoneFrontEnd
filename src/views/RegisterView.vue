@@ -91,7 +91,7 @@ export default {
         firstName: this.firstName,
         lastName: this.lastName,
         email: this.email,
-        phoneNO: this.phoneNO,
+        phoneNo: this.phoneNo,
         password: this.password,
       });
   }

@@ -33,7 +33,7 @@ export default {
     data(){
         return{
             title: null,
-            prodUrl: null,
+            img: null,
             description: null,
             category: null,
             price: null
@@ -44,7 +44,7 @@ export default {
             e.preventDefault();
             let newProduct = {
                 title: this.title,
-                prodUrl: this.prodUrl,
+                img: this.img,
                 description: this.description,
                 category: this.category,
                 price: this.price
