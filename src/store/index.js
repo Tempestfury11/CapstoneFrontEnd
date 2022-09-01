@@ -38,7 +38,6 @@ export default createStore({
       const { firstName, lastName, email, phoneNo, password } = payload;
       // fetch method from api
       await fetch("https://marshalinocapstone.herokuapp.com/register", {
-      // await fetch("https://marshalinocapstone.herokuapp.com/register", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -77,7 +76,6 @@ export default createStore({
       }
      })
     },
-
     // get users
     getusers: async (context) => {
       let res = await fetch(TempestGamingUrl + 'users');
@@ -89,7 +87,6 @@ export default createStore({
         console.log(`Loading...`);
       }
     },
-
     // get single user
     getuser: async (context, id) => {
       fetch(TempestGamingUrl + 'users/' + id)
@@ -99,7 +96,6 @@ export default createStore({
           context.commit('setUsers', data.results);
         })
     },
-
     // delete user
     deleteuser: async (context, id) => {
       fetch("https://marshalinocapstone.herokuapp.com/users/" + id, {
@@ -108,7 +104,6 @@ export default createStore({
         .then((res) => res.json())
         .then(() => context.dispatch('getUsers'));
     },
-
     // update user
     updateuser: async (context, user) => {
             // fecth from body
@@ -138,7 +133,7 @@ export default createStore({
     // _____________
     // get products
 getproducts: async (context) => {
-  let res = await fetch('http://localhost:4000/products');
+  let res = await fetch('https://marshalinocapstone.herokuapp.com/products');
   let data = await res.json();
   let result = data.results;
   if(result){
@@ -147,7 +142,6 @@ getproducts: async (context) => {
     console.log('loading...')
   }
 },
-
 // get single product  
 getproduct: async (context, id) => {
   // Product_id = 1
@@ -158,13 +152,12 @@ getproduct: async (context, id) => {
     context.commit("setProduct", data.results);
   })
 },
-
  // add product
  addProduct: async(context, payload) => {
   const { title, price, category, description, img, } = payload;
   
   try{
-    await fetch("http://localhost:4000/products", {
+    await fetch("https://marshalinocapstone.herokuapp.com/products", {
     method: "POST",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
@@ -186,7 +179,7 @@ getproduct: async (context, id) => {
 }
 },
 editProduct: async (context, product) => {
-fetch("http://localhost:4000/products/" + product.id, {
+fetch("https://marshalinocapstone.herokuapp.com/products/" + product.id, {
 method: "PUT",
 // fetch data from form
 body: JSON.stringify(product),
@@ -211,10 +204,8 @@ deleteProduct: async (context, product_id) => {
     .then(() => context.dispatch('getProducts'));
 },
 
-
 // updates list
     updateProduct: async (context, product) => {
-      // fetch("http://localhost:3000/products/" + product.id, {
       fetch("https://marshalinocapstone.herokuapp.com/products/" + product.product_id, {
           method: "PUT",
           body: JSON.stringify(product),
