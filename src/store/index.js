@@ -196,12 +196,20 @@ context.dispatch("getproducts");
 },
 
 // delete product
-deleteProduct: async (context, product_id) => {
-  fetch("https://marshalinocapstone.herokuapp.com/products/" + product_id, {
+deleteProduct: async (context, product) => {
+  console.log(product);
+  fetch("https://marshalinocapstone.herokuapp.com/products/" + product.id, {
     method: "DELETE",
-  })
-    .then((res) => res.json())
-    .then(() => context.dispatch('getProducts'));
+    body: JSON.stringify(product),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+    })
+    .then((res)=> res.json())
+    .then((data)=> {
+      context.dispatch("getproducts");
+      
+    })
 },
 
 // updates list

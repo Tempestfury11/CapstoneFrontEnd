@@ -21,7 +21,7 @@ export default {
     props:['product'],
     methods:{
         deleteProduct(){
-            this.$store.dispatch('deleteProduct',this.product.id);
+            this.$store.dispatch('deleteProduct',this.product);
             document.getElementById(`deleteProductClose`+this.product.id).click();
         }
     }
