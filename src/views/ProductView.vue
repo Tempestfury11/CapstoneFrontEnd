@@ -5,18 +5,6 @@
         <div class="col justify-content-center">
           <div class="card justify-content-center">
             <div class="card-img">
-              {{ game[0].category }}
-            </div>
-            <div class="card-info">
-              <p class="text-title text-light">
-                {{ game[0].description }}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col justify-content-right">
-          <div class="card justify-content-center">
-            <div class="card-img">
               <img id="image" class="img-fluid" :src="game[0].img" />
             </div>
             <div class="card-info">
@@ -29,6 +17,14 @@
                 <span class="text-title text-light">R{{ game[0].price }}</span>
                 <button class="btn btn-grad">Add To Cart</button>
               </div>
+            </div>
+            <div class="card-img">
+              {{ game[0].category }}
+            </div>
+            <div class="card-info">
+              <p class="text-title text-light">
+                {{ game[0].description }}
+              </p>
             </div>
           </div>
         </div>
@@ -101,15 +97,15 @@ a {
 
 #image {
   width: 100%;
-  height: 150px;
+  height: 100%;
   border-radius: 10px;
 }
 
 .card {
-  width: 20vw;
+  width: 350px;
   max-width: 100%;
   margin-bottom: 1rem;
-  padding: 0.8em;
+  padding: 25px;
   background: transparent;
   position: relative;
   overflow: visible;
@@ -126,11 +122,6 @@ a {
 
 .card-info {
   padding-top: 10%;
-}
-
-svg {
-  width: 20px;
-  height: 20px;
 }
 
 .card-footer {
@@ -155,27 +146,5 @@ svg {
 .text-body {
   font-size: 0.9em;
   padding-bottom: 10px;
-}
-
-/*Button*/
-.card-button {
-  border: 1px solid white;
-  display: flex;
-  padding: auto;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: 0.3s ease-in-out;
-}
-
-/*Hover*/
-.card-img:hover {
-  transform: translateY(-15%);
-  box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px,
-    rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
-}
-
-.card-button:hover {
-  border: 1px solid #ffcaa6;
-  background-color: #ffcaa6;
 }
 </style>

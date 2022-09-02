@@ -101,7 +101,7 @@ export default createStore({
         method: "DELETE",
       })
         .then((res) => res.json())
-        .then(() => context.dispatch("getUsers"));
+        .then(() => context.dispatch("getusers"));
     },
     // update user
     updateuser: async (context, user) => {
@@ -126,7 +126,7 @@ export default createStore({
         .then((res) => res.json())
         .then((data) => {
           alert(data.msg);
-          context.dispatch("getUsers");
+          context.dispatch("getusers");
         });
     },
     // _____________
@@ -156,7 +156,6 @@ export default createStore({
     // add product
     addProduct: async (context, payload) => {
       const { title, price, category, description, img } = payload;
-
       try {
         await fetch("https://marshalinocapstone.herokuapp.com/products", {
           method: "POST",
@@ -210,7 +209,6 @@ export default createStore({
           context.dispatch("getproducts");
         });
     },
-
     // updates list
     updateProduct: async (context, product) => {
       fetch(
