@@ -38,7 +38,7 @@
                         Yes
                   </div>
                   <div v-else>
-                    This kak
+                    hectic
                   </div>
                 </div>
               </form>

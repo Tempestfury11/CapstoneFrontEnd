@@ -58,9 +58,9 @@ export default {};
 .btn-grad {
   background-image: linear-gradient(
     to right,
-    #e52d27 0%,
-    #b31217 51%,
-    #e52d27 100%
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
   );
   margin: 10px;
   padding: 10px 15px;

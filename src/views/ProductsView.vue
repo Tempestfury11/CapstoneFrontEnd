@@ -160,12 +160,6 @@ svg {
 /*Hover*/
 .card-img:hover {
   transform: translateY(-15%);
-  box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px,
-    rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
-}
-
-.card-button:hover {
-  border: 1px solid #ffcaa6;
-  background-color: #ffcaa6;
+  box-shadow: 0 0 20px #eee;
 }
 </style>

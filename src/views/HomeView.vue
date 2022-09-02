@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <div class="container justify-content-center">
-    </div>
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">

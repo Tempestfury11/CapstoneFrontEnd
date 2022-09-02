@@ -1,25 +1,21 @@
 <template>
   <div id="main" class="product">
-    <div class="container">
-      <div class="row justify-content-between">
-        <div class="col justify-content-center">
+    <div class="container-fluid">
+      <div class="row row vh-100 d-flex justify-content-center align-content-center">
           <div class="card justify-content-center">
             <div class="card-img">
               <img id="image" class="img-fluid" :src="game[0].img" />
             </div>
-            <div class="card-info">
+            <!-- <div class="card-info">
               <p class="text-title text-light">
                 {{ game[0].title }}
               </p>
-            </div>
+            </div> -->
             <div class="card-footer">
               <div class="btn-container">
                 <span class="text-title text-light">R{{ game[0].price }}</span>
                 <button class="btn btn-grad">Add To Cart</button>
               </div>
-            </div>
-            <div class="card-img">
-              {{ game[0].category }}
             </div>
             <div class="card-info">
               <p class="text-title text-light">
@@ -30,7 +26,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -95,12 +90,6 @@ a {
   text-decoration: none;
 }
 
-#image {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
-
 .card {
   width: 350px;
   max-width: 100%;
@@ -120,9 +109,9 @@ a {
   transition: 0.3s ease;
 }
 
-.card-info {
+/* .card-info {
   padding-top: 10%;
-}
+} */
 
 .card-footer {
   width: 100%;
@@ -130,18 +119,17 @@ a {
   justify-content: space-between;
   align-items: center;
   padding-top: 10px;
-  border-top: 2px solid white;
+  /* border-top: 2px solid white; */
   text-align: center;
   align-content: center;
   justify-content: center;
 }
 
-/*Text*/
-.text-title {
+/* .text-title {
   font-weight: 900;
   font-size: 1.2em;
   line-height: 1.5;
-}
+} */
 
 .text-body {
   font-size: 0.9em;
