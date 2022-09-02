@@ -38,8 +38,8 @@
             <button class="btn btn-grad"
              id="delete"
                v-on:click="$store.dispatch('deleteProduct', product.id)">
-               DELETE
-              </button>
+               <router-link to="/admin">Delete</router-link>
+            </button>
 
           </th>
           <EditProductModal :product="product" />
@@ -69,6 +69,9 @@ export default {
 </script>
 
 <style scoped>
+a{
+  text-decoration: none
+}
 #main {
   background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
   background-size: cover;

@@ -23,7 +23,9 @@ export default {
     methods:{
         deleteProduct(){
             this.$store.dispatch('deleteProduct',this.product);
-            document.getElementById(`deleteProductClose`+this.product.id).click();
+            document.getElementById(`deleteProductClose`+this.product.id).click(function() {
+                location.reload();
+            });
         }
     }
 }
