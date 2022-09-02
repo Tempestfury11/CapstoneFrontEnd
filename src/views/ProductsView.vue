@@ -96,7 +96,7 @@ a {
 }
 
 .card {
-  width: 20vw;
+
   max-width: 100%;
   margin-bottom: 1rem;
   padding: 0.8em;

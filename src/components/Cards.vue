@@ -1,25 +1,33 @@
 <template>
-  <div class="col-md-4 col-lg-3 col-xm-12 col-sm-6">
-    <section class="card-content" v-for="(products,index) in products" :key="index">
-      <div class="card-content">
-        <div class="card">
-          <div class="layer"></div>
-          <div class="content">
-            <img
-              :src="products.img"
-              alt="productImage"
-              id="item-img"
-              class="img-fluid image"
-            />
-            <br />
-            <div class="details">
-              <span>{{ products.title }}</span>
-              <br />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-lg-3 col-xm-12 col-sm-6">
+        <section
+          class="card-content"
+          v-for="(products, index) in products"
+          :key="index"
+        >
+          <div class="card-content">
+            <div class="card">
+              <div class="layer"></div>
+              <div class="content">
+                <img
+                  :src="products.img"
+                  alt="productImage"
+                  id="item-img"
+                  class="img-fluid image"
+                />
+                <br />
+                <div class="details">
+                  <span>{{ products.title }}</span>
+                  <br />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
@@ -38,8 +46,8 @@ export default {
 </script>
 
 <style scoped>
-a{
-  text-decoration: none
+a {
+  text-decoration: none;
 }
 .btn-grad {
   background-image: linear-gradient(
