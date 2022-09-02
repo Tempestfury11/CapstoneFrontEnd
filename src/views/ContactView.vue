@@ -1,13 +1,13 @@
 <template>
   <div id="main">
-    <div class="container">
+    <div class="container text-white">
       <h1 class="text-center">CONTACT US</h1>
       <div class="contact-form-wrapper d-flex justify-content-center">
         <form
           action="https://formspree.io/f/mvoleqaw"
           class="contact-form card"
         >
-          <p class="description">
+          <p class="description text-white">
             Feel free to contact us if you need any assistance, any help or
             another question.
           </p>
@@ -122,29 +122,23 @@ export default {};
 
 .contact-form .form-control::placeholder {
   color: black;
-  font-weight: 500;
   opacity: 1;
 }
 
 .contact-form .form-control:-ms-input-placeholder {
   color: black;
-  font-weight: 500;
 }
 
 .contact-form .form-control::-ms-input-placeholder {
   color: black;
-  font-weight: 500;
 }
 
 .contact-form .title {
   text-align: center;
-  font-size: 24px;
-  font-weight: 500;
 }
 
 .contact-form .description {
   color: black;
-  font-size: 20px;
   text-align: center;
 }
 
@@ -157,7 +151,5 @@ export default {};
   border-radius: 4px;
   text-transform: uppercase;
   padding: 10px 60px;
-  font-weight: 500;
-  letter-spacing: 2px;
 }
 </style>
