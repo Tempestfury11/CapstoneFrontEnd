@@ -195,20 +195,31 @@ export default createStore({
     },
 
     // delete product
-    deleteProduct: async (context, product) => {
-      console.log(product);
-      fetch("https://marshalinocapstone.herokuapp.com/products/" + product.id, {
-        method: "DELETE",
-        body: JSON.stringify(product),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          context.dispatch("getproducts");
-        });
-    },
+    // deleteProduct: async (context, product) => {
+    //   console.log(product);
+    //   fetch("" + product.id, {
+    //     method: "DELETE",
+    //     body: JSON.stringify(product),
+    //     headers: {
+    //       "Content-type": "application/json; charset=UTF-8",
+    //     },
+    //   })
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       context.dispatch("getproducts");
+    //     });
+    // },
+
+    // delete product
+deleteProduct: async (context, id) => {
+  fetch("https://marshalinocapstone.herokuapp.com/products/"+id, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then(() => context.dispatch('getproducts'));
+},
+
+
     // updates list
     updateProduct: async (context, product) => {
       fetch(

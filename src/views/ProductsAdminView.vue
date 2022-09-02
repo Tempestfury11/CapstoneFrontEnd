@@ -34,15 +34,15 @@
               class="btn-grad">
               Edit
             </button>
-            <button
-              data-bs-toggle="modal"
-              :data-bs-target="`#deleteProduct` + product.id"
-              class="btn-grad">
-             Delete
-            </button>
+
+            <button class="btn btn-grad"
+             id="delete"
+               v-on:click="$store.dispatch('deleteProduct', product.id)">
+               DELETE
+              </button>
+
           </th>
           <EditProductModal :product="product" />
-          <DeleteProductModal :product="product" />
         </tr>
       </tbody>
     </table>
@@ -53,11 +53,10 @@
 
 <script>
 import EditProductModal from "../components/EditProductModal";
-import DeleteProductModal from "../components/DeleteProductModal.vue";
 import AddProductModal from "../components/AddProductModal.vue";
 
 export default {
-  components: { EditProductModal, DeleteProductModal, AddProductModal },
+  components: { EditProductModal, AddProductModal },
   mounted() {
     this.$store.dispatch("getproducts");
   },
