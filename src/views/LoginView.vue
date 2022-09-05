@@ -17,7 +17,7 @@
                     required
                     v-model="email"
                     class="form-control"
-                  name="email"
+                    name="email"
                   />
                 </div>
                 <div class="mb-4 text-light text-center">
@@ -31,10 +31,10 @@
                   />
                 </div>
                 <div class="d-grid">
-                  <button type="submit" class="btn btn-grad">
-                    Login
-                  </button>
+                  <button type="submit" class="btn btn-grad">Login</button>
                 </div>
+                <div v-if="user">awsedrfghbnj</div>
+                <div v-else>Loading...</div>
               </form>
             </div>
           </div>
@@ -46,25 +46,27 @@
 
 <script>
 export default {
- data(){
-// insert empty object into form
-    return{
-       email: '',
-       password: '',
-    }
-},
-methods: {
-login(){
-  const payload = {
-    email: this.email,
-    password: this.password
-  }
-this.$store.dispatch('login', payload)
-},
-user(){
-    return this.$store.state.user
-}
-}
+  data() {
+    // insert empty object into form
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    login() {
+      const payload = {
+        email: this.email,
+        password: this.password,
+      };
+      this.$store.dispatch("login", payload);
+    },
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
 };
 </script>
 
@@ -94,7 +96,12 @@ user(){
   text-decoration: none;
 }
 #main {
-  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
