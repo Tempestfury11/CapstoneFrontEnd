@@ -6,7 +6,7 @@
           <img src="https://i.postimg.cc/T1RjHFBW/wp2972942-xbox-4k-wallpapers.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="https://i.postimg.cc/J7bFnB8p/wallpaperflare-com-wallpaper.jpg" class="d-block w-100" alt="...">
+          <img src="https://i.postimg.cc/025DjmqK/wallpaperflare-com-wallpaper-removebg-preview.png" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
           <img src="https://i.postimg.cc/XJqzPnsR/Steam-logo-PNG15.png" class="d-block w-100" alt="...">

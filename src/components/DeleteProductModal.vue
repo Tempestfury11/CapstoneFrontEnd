@@ -32,6 +32,10 @@ export default {
 </script>
 
 <style scoped>
+a{
+    text-decoration: none;
+    border: #000000;
+}
 .modal-content{
     background-image: linear-gradient(
     to right,
@@ -57,6 +61,8 @@ export default {
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   font-size: 12px;
+  text-decoration: none;
+  border: black;
 }
 
 .btn-grad:hover {

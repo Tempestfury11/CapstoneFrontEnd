@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style scoped>
-.btn-container{
+.btn-container {
   text-align: center;
   align-content: center;
   justify-content: center;
@@ -78,12 +78,18 @@ a {
 }
 
 #image {
-  width: 100%;
+  width: 150px;
   height: 150px;
   border-radius: 10px;
+  /* object-fit: cover */
 }
 .main {
-  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -96,7 +102,6 @@ a {
 }
 
 .card {
-
   max-width: 100%;
   margin-bottom: 1rem;
   padding: 0.8em;
@@ -160,6 +165,6 @@ svg {
 /*Hover*/
 .card-img:hover {
   transform: translateY(-15%);
-  box-shadow: 0 0 20px #eee;
+  /* box-shadow: 0 0 10px #eee; */
 }
 </style>

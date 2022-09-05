@@ -17,7 +17,7 @@
                     required
                     v-model="email"
                     class="form-control"
-                    name="email"
+                  name="email"
                   />
                 </div>
                 <div class="mb-4 text-light text-center">

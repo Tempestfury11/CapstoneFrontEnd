@@ -37,7 +37,6 @@ export default {
     props:['product'],
     methods:{
         editProduct(){
-            // e.preventDefault();
             let newProduct = {
                 id: this.product.id,
                 title: this.product.title,

@@ -1,25 +1,20 @@
 <template>
   <div id="main" class="product">
-    <div class="container-fluid">
+    <div class="container-fluid" v-if="product">
       <div class="row row vh-100 d-flex justify-content-center align-content-center">
           <div class="card justify-content-center">
             <div class="card-img">
-              <img id="image" class="img-fluid" :src="game[0].img" />
+              <img id="image" class="img-fluid" :src="product[0].img" />
             </div>
-            <!-- <div class="card-info">
-              <p class="text-title text-light">
-                {{ game[0].title }}
-              </p>
-            </div> -->
             <div class="card-footer">
               <div class="btn-container">
-                <span class="text-title text-light">R{{ game[0].price }}</span>
+                <span class="text-title text-light">R{{ product[0].price }}</span>
                 <button class="btn btn-grad">Add To Cart</button>
               </div>
             </div>
             <div class="card-info">
               <p class="text-title text-light">
-                {{ game[0].description }}
+                {{ product[0].description }}
               </p>
             </div>
           </div>
@@ -34,7 +29,7 @@ export default {
     this.$store.dispatch("getproduct", this.$route.params.id);
   },
   computed: {
-    game() {
+    product() {
       return this.$store.state.product;
     },
   },
@@ -103,7 +98,7 @@ a {
 
 .card-img {
   background-color: transparent;
-  height: 40%;
+  height: 50%;
   width: 100%;
   border-radius: 0.5rem;
   transition: 0.3s ease;

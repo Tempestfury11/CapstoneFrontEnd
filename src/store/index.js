@@ -63,7 +63,7 @@ export default createStore({
     // login
     login(context, payload) {
       // console.log(payload);
-      fetch(TempestGamingUrl + "login", {
+      fetch(TempestGamingUrl +"login", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -74,9 +74,10 @@ export default createStore({
         .then((data) => {
           if (data.msg === "Login Failed.") {
           } else {
-            context.commit("setUser", payload);
-            console.log("sign in");
-            router.push({ name: "home" });
+            context.commit("setUser", data.user);
+            console.log(data.user)
+            context.dispatch("getCart", context.state.user.id)
+            router.push({ name: "products" });
           }
         });
     },
@@ -92,7 +93,7 @@ export default createStore({
       }
     },
     // get single user
-    getuser: async (context, id) => {
+    getUser: async (context, id) => {
       fetch(TempestGamingUrl + "users/" + id)
         .then((res) => res.json())
         .then((data) => {
@@ -224,19 +225,20 @@ deleteProduct: async (context, id) => {
           context.dispatch("getProducts");
         });
     },
-  },
-  getCart: async (context) => {
-    // fetch
-    let res = await fetch(
-      artmart + "users/" + context.state.user.id + "/cart"
-    );
-    let data = await res.json();
-    let result = data.results;
-    if (result) {
-      context.commit("setCart", result);
-    } else {
-      console.log("Failed to get cart");
-    }
+    getCart: async (context) => {
+      // fetch
+      let res = await fetch(
+         TempestGamingUrl + `${context.state.user.id}/cart`
+      );
+      let data = await res.json();
+      let result = data.results;
+      if (result) {
+        context.commit("setCart", result);
+      } else {
+        console.log("Failed to get cart");
+      }
+    },
+    
   },
   modules: {},
 });

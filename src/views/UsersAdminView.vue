@@ -11,6 +11,7 @@
           <th scope="col">Email</th>
           <th scope="col">Phone Number</th>
           <th scope="col">Password</th>
+          <th scope="col">Cart</th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +22,7 @@
           <th scope="row">{{ user.email }}</th>
           <th scope="row">{{ user.phoneNo}}</th>
           <th scope="row">{{ user.password }}</th>
+          <th scope="row">{{ user.cart}}</th>
         </tr>
       </tbody>
     </table>
@@ -42,6 +44,9 @@ export default {
 </script>
 
 <style scoped>
+a{
+  text-decoration: none;
+}
 #main {
   background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
   background-size: cover;

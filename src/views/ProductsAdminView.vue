@@ -35,12 +35,11 @@
               Edit
             </button>
 
-            <button class="btn btn-grad"
+            <button class="btn-grad"
              id="delete"
                v-on:click="$store.dispatch('deleteProduct', product.id)">
                <router-link to="/admin">Delete</router-link>
             </button>
-
           </th>
           <EditProductModal :product="product" />
         </tr>

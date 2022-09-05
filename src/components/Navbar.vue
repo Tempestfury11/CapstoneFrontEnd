@@ -58,7 +58,18 @@ import Cart from '@/components/Cart.vue'
 export default {
   components: {
   Cart
-}
+},
+computed: {
+      cart() {
+        return this.$store.state.cart;
+      },
+      user(){
+        return this.$store.state.user
+      }
+    },
+    mounted() {
+      this.$store.dispatch("getUser")
+    },
 }
 </script>
 
