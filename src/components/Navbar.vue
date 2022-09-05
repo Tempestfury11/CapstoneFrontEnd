@@ -44,12 +44,22 @@
           ><i class="fa-solid fa-phone"></i>CONTACT</router-link
         >
       </li>
+      <li class="nav-item">
+        <button>
+          <Cart/>
+        </button>
+      </li>
     </ul>
   </header>
 </template>
 
 <script>
-export default {};
+import Cart from '@/components/Cart.vue'
+export default {
+  components: {
+  Cart
+}
+}
 </script>
 
 <style>

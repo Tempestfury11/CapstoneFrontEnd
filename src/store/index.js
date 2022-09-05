@@ -10,11 +10,13 @@ export default createStore({
     products: null,
     product: null,
     message: null,
+    cart: null
   },
   getters: {
     getUsers: (state) => state.users,
     getProducts: (state) => state.products,
     getUser: (state) => state.user,
+    getCart: (state) => state.cart
   },
   mutations: {
     setUsers(state, users) {
@@ -29,6 +31,9 @@ export default createStore({
     setProduct(state, product) {
       state.product = product;
     },
+    setCart(state, values) {
+      state.cart = values;
+    }
   },
   actions: {
     // register
@@ -129,7 +134,6 @@ export default createStore({
           context.dispatch("getusers");
         });
     },
-    // _____________
     // get products
     getproducts: async (context) => {
       let res = await fetch(
@@ -193,23 +197,6 @@ export default createStore({
           context.dispatch("getproducts");
         });
     },
-
-    // delete product
-    // deleteProduct: async (context, product) => {
-    //   console.log(product);
-    //   fetch("" + product.id, {
-    //     method: "DELETE",
-    //     body: JSON.stringify(product),
-    //     headers: {
-    //       "Content-type": "application/json; charset=UTF-8",
-    //     },
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       context.dispatch("getproducts");
-    //     });
-    // },
-
     // delete product
 deleteProduct: async (context, id) => {
   fetch("https://marshalinocapstone.herokuapp.com/products/"+id, {
@@ -218,8 +205,6 @@ deleteProduct: async (context, id) => {
     .then((res) => res.json())
     .then(() => context.dispatch('getproducts'));
 },
-
-
     // updates list
     updateProduct: async (context, product) => {
       fetch(
@@ -240,6 +225,18 @@ deleteProduct: async (context, id) => {
         });
     },
   },
-
+  getCart: async (context) => {
+    // fetch
+    let res = await fetch(
+      artmart + "users/" + context.state.user.id + "/cart"
+    );
+    let data = await res.json();
+    let result = data.results;
+    if (result) {
+      context.commit("setCart", result);
+    } else {
+      console.log("Failed to get cart");
+    }
+  },
   modules: {},
 });
