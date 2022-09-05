@@ -51,37 +51,32 @@
       <div class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">
           <div class="card">
-            <img src="https://i.postimg.cc/FH8swPXv/419788.jpg" class="card-img-top" alt="" />
+            <img id="img" src="https://i.postimg.cc/FH8swPXv/419788.jpg" class="card-img-top" alt="" />
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <img src="https://i.postimg.cc/QxKz0Sm1/702620.png" class="card-img-top" alt="..." />
+            <img id="img" src="https://i.postimg.cc/QxKz0Sm1/702620.png" class="card-img-top" alt="..." />
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <img src="https://i.postimg.cc/CK5rnNRR/595712.jpg" class="card-img-top" alt="..." />
+            <img id="img" src="https://i.postimg.cc/139zpgcx/spiderman.png" class="card-img-top" alt="..." />
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <img src="https://i.postimg.cc/ZndWD101/mirage.png" class="card-img-top" alt="..." />
+            <img id="img" src="https://i.postimg.cc/ZndWD101/mirage.png" class="card-img-top" alt="..." />
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <img src="https://i.postimg.cc/8k6m7CbB/suicidesquad.png" class="card-img-top" alt="..." />
+            <img id="img" src="https://i.postimg.cc/8k6m7CbB/suicidesquad.png" class="card-img-top" alt="..." />
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <img src="https://i.postimg.cc/Jnbw6xMp/starwars.png" class="card-img-top" alt="..." />
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="https://i.postimg.cc/sX9fL7r4/stateofdecay.png" class="card-img-top" alt="..." />
+            <img id="img" src="https://i.postimg.cc/CK5rnNRR/595712.jpg" class="card-img-top" alt="..." />
           </div>
         </div>
       </div>
@@ -117,7 +112,10 @@ export default {};
   text-align: center;
 }
 .d-block{
-  height:750px;
-  width:750px;
+  height:600px;
+  width:600px;
+}
+#img{
+  height:400px
 }
 </style>
