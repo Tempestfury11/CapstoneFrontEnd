@@ -34,12 +34,6 @@
                   <button type="submit" class="btn btn-grad">
                     Login
                   </button>
-                  <div v-if="user">
-                        Yes
-                  </div>
-                  <div v-else>
-                    hectic
-                  </div>
                 </div>
               </form>
             </div>
