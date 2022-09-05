@@ -6,6 +6,7 @@
         <form
           action="https://formspree.io/f/mvoleqaw"
           class="contact-form card"
+          method="POST"
         >
           <p class="description text-white">
             Feel free to contact us if you need any assistance, any help or
