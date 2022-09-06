@@ -12,6 +12,7 @@
           <th scope="col">Phone Number</th>
           <th scope="col">Password</th>
           <th scope="col">Cart</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,13 @@
           <th scope="row">{{ user.phoneNo}}</th>
           <th scope="row">{{ user.password }}</th>
           <th scope="row">{{ user.cart}}</th>
+          <th scope="row">
+            <button class="btn-grad"
+             id="delete"
+               v-on:click="$store.dispatch('deleteUser', user.id)">
+               <router-link to="/admin">Delete</router-link>
+            </button>
+          </th>
         </tr>
       </tbody>
     </table>
@@ -68,5 +76,30 @@ table {
 th, td {
   text-align: center;
   padding: 8px;
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
+  );
+  margin: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 </style>
