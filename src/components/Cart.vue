@@ -1,4 +1,5 @@
 <template>
+  
   <a
     class="btn text-white"
     data-bs-toggle="offcanvas"
@@ -24,7 +25,7 @@
         aria-label="Close"
       >X</button>
     </div>
-    <div class="offcanvas-body text-white">
+    <div class="offcanvas-body text-center text-white">
       <div v-for="(products, index) in cart" :key="index">
         {{ products.title }}
         <span class="text-title text-black">R{{ products.price }}</span><br>
