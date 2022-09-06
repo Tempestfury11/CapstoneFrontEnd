@@ -22,7 +22,7 @@
         class="btn-close btn-grad"
         data-bs-dismiss="offcanvas"
         aria-label="Close"
-      ></button>
+      >X</button>
     </div>
     <div class="offcanvas-body text-white">
       <div v-for="(products, index) in cart" :key="index">
@@ -36,6 +36,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   props: ["product_id"],
