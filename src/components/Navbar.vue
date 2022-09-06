@@ -2,12 +2,18 @@
   <header class="header">
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon bg-dark" for="menu-btn"
-      ><img class="img-fluid" src="https://i.postimg.cc/Yqcq57t6/click-removebg-preview.png" width="35" height="35" alt=""><span class="navicon">
-        </span
+      ><img
+        class="img-fluid"
+        src="https://i.postimg.cc/Yqcq57t6/click-removebg-preview.png"
+        width="35"
+        height="35"
+        alt="" /><span class="navicon"> </span
     ></label>
     <ul class="menu">
       <li class="nav-item">
-        <router-link :to="{ name: 'home' }"><i class="bi bi-house-door-fill"></i>HOME</router-link>
+        <router-link :to="{ name: 'home' }"
+          ><i class="bi bi-house-door-fill"></i>HOME</router-link
+        >
       </li>
       <li class="nav-item">
         <router-link :to="{ name: 'about' }"
@@ -45,39 +51,38 @@
         >
       </li>
       <li class="nav-item">
-        <button>
-          <Cart/>
-        </button>
+        <span id="cart">
+          <Cart />
+        </span>
       </li>
     </ul>
   </header>
 </template>
 
 <script>
-import Cart from '@/components/Cart.vue'
+import Cart from "@/components/Cart.vue";
 export default {
   components: {
-  Cart
-},
-computed: {
-      cart() {
-        return this.$store.state.cart;
-      },
-      user(){
-        return this.$store.state.user
-      }
+    Cart,
+  },
+  computed: {
+    cart() {
+      return this.$store.state.cart;
     },
-    mounted() {
-      this.$store.dispatch("getUser")
+    user() {
+      return this.$store.state.user;
     },
-}
+  },
+  mounted() {
+    this.$store.dispatch("getUser");
+  },
+};
 </script>
 
 <style>
 a {
   color: white;
 }
-
 /* header */
 .header {
   background-color: black;
@@ -135,7 +140,7 @@ a {
   user-select: none;
   background: white;
   background-color: white;
-  color: red
+  color: red;
 }
 
 .header .menu-icon .navicon {
@@ -171,7 +176,7 @@ a {
 }
 
 .header .menu-btn:checked ~ .menu {
-  max-height: 440px;
+  max-height: 525px;
 }
 
 .header .menu-btn:checked ~ .menu-icon .navicon {

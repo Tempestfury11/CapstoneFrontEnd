@@ -1,6 +1,6 @@
 <template>
   <a
-    class="btn"
+    class="btn text-white"
     data-bs-toggle="offcanvas"
     href="#offcanvasExample"
     role="button"
@@ -55,6 +55,9 @@ export default {
 </script>
 
 <style scoped>
+  a{
+    background:black;
+  }
 .btn-grad {
   background-image: linear-gradient(
     to right,
