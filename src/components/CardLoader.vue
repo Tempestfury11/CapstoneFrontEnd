@@ -22,8 +22,7 @@
                 />
                 </div>
                 <div class="content">
-                  <h3 class="title text-black">{{ product.title }}</h3>
-                  <span class="text-black">{{ product.category }}</span>
+                  <h3 class="title text-white">{{ product.title }}</h3>
                 </div>
                 <div class="row justify-content-center social text-center">
                     <div class="col-sm-6">
@@ -32,7 +31,6 @@
                     <button id="adminButton" class="btn-grad btn">View Product</button>
                   </router-link>
                     </div>
-                  
                 </div>
               </div>
             </div>
@@ -107,8 +105,8 @@ background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  1
   height: 400px;
   border-radius: 10px;
   overflow: hidden;
-  background: white;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+  background: transparent;
+  box-shadow: 0 0 20px #eee;
 }
 .box-container .card:before {
   content: "";
@@ -116,14 +114,13 @@ background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  1
   display: block;
   width: 100%;
   height: 0;
-  background: #64B3F4;
   transition: all 0.5s ease;
 }
 .box-container .card:hover .pic {
   width: 120px;
   height: 120px;
   margin-top: 50px;
-  box-shadow: 0px 0px 10px 1px #888;
+  box-shadow: 0 0 20px #eee;
 }
 .box-container .card .pic {
   position: relative;
@@ -135,7 +132,7 @@ background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  1
   overflow: hidden;
   transition: all 0.5s ease;
   background: #fff;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px #eee;
 }
 .box-container .card .pic img {
   width: 100%;

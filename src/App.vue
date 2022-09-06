@@ -1,7 +1,7 @@
 <template>
     <Navbar/>
-    <CardLoader/>
   <router-view/>
+  <CardLoader/>
     <FooterView/>
 </template>
 
