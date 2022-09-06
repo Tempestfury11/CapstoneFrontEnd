@@ -10,7 +10,7 @@
   </a>
 
   <div
-    class="offcanvas offcanvas-start"
+    class="offcanvas offcanvas-start bg-dark"
     tabindex="-1"
     id="offcanvasExample"
     aria-labelledby="offcanvasExampleLabel"
@@ -28,6 +28,7 @@
       <div v-for="(products, index) in cart" :key="index">
         {{ products.title }}
         <span class="text-title text-black">R{{ products.price }}</span><br>
+        {{ products.img }}
         <button class="btn btn-primary m-3" @click="this.$store.dispatch('deleteItem', products.cart_id)">
           Delete item
         </button>
