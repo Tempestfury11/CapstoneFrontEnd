@@ -9,7 +9,7 @@
             <div class="card-footer">
               <div class="btn-container">
                 <span class="text-title text-light">R{{ product[0].price }}</span>
-                <button class="btn btn-grad">Add To Cart</button>
+                <button class="btn btn-grad" @click="this.$store.dispatch('addToCart', {id: product[0].id})">Add To Cart</button>
               </div>
             </div>
             <div class="card-info">

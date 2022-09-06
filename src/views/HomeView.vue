@@ -112,8 +112,7 @@ export default {};
   text-align: center;
 }
 .d-block{
-  height:600px;
-  width:600px;
+  height:700px;
 }
 #img{
   height:400px
