@@ -47,6 +47,9 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+    <div class="container">
+      <img class="img-fluid" src="https://i.postimg.cc/SNgt3bp2/game.png" alt="">
+    </div>
     <div>
       <div class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">
