@@ -91,7 +91,6 @@ li {
     #000000 100%
   );
 }
-
 .box-container {
   display: flex;
   width: 100%;
@@ -121,8 +120,8 @@ li {
   transition: all 0.5s ease;
 }
 .box-container .card:hover .pic {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   margin-top: 50px;
   box-shadow: 0 0 20px #eee;
 }
@@ -131,8 +130,8 @@ li {
   left: 50%;
   top: 15%;
   transform: translateX(-50%);
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   overflow: hidden;
   transition: all 0.5s ease;
   background: #fff;
