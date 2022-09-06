@@ -1,17 +1,18 @@
 <template>
   <div class="main">
-    <div slider="center: true">
+    <div class="conatiner">
+      <div slider="center: true">
       <div class="position-relative visible-toggle" tabindex="-1">
         <ul
           class="slider-items child-width-1-2@s child-width-1-4@l child-width-1-4@m grid"
         >
           <li>
-            <div class="panel container">
+            <div class="panel">
               <div class="box-container row">
                 <div
                   v-for="(product, index) in products"
                   :key="index"
-                  class="card col-md-4 col-lg-3 col-xm-12 col-sm-6 m-5"
+                  class="card col-md-4 col-lg-3 col-xm-12 col-sm-6 m-2"
                 >
                   <div class="pic">
                     <img
@@ -45,6 +46,7 @@
           </li>
         </ul>
       </div>
+    </div>
     </div>
   </div>
 </template>

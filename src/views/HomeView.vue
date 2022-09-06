@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div
+    <!-- <div
       id="carouselExampleControls"
       class="carousel slide"
       data-bs-ride="carousel"
@@ -46,7 +46,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-    </div>
+    </div> -->
     <div class="container">
       <img class="img-fluid" src="https://i.postimg.cc/SNgt3bp2/game.png" alt="">
     </div>
