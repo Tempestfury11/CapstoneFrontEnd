@@ -61,7 +61,7 @@
                 </div>
                 <div class="d-grid">
                   <button type="submit" class="btn btn-grad">
-                    Register
+                    <router-link to="/products">Register</router-link>
                   </button>
                 </div>
               </form>

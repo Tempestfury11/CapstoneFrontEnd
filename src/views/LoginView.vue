@@ -33,8 +33,6 @@
                 <div class="d-grid">
                   <button type="submit" class="btn btn-grad">Login</button>
                 </div>
-                <div v-if="user">awsedrfghbnj</div>
-                <div v-else>Loading...</div>
               </form>
             </div>
           </div>
