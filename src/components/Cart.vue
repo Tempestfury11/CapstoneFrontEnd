@@ -16,7 +16,7 @@
     aria-labelledby="offcanvasExampleLabel"
   >
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+      <button class="btn btn-primary m-3" @click="this.$store.dispatch('clearCart')">Clear Cart</button><br>
       <button
         type="button"
         class="btn-close"
@@ -27,12 +27,11 @@
     <div class="offcanvas-body text-black">
       <div v-for="(products, index) in cart" :key="index">
         {{ products.title }}
-        <span class="text-title text-black">R{{ products.price }}</span>
+        <span class="text-title text-black">R{{ products.price }}</span><br>
         <button class="btn btn-primary m-3" @click="this.$store.dispatch('deleteItem', products.cart_id)">
           Delete item
         </button>
       </div>
-      <button class="btn btn-primary m-3" @click="this.$store.dispatch('clearCart')">Clear Cart</button>
     </div>
   </div>
 </template>

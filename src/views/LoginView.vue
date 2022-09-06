@@ -31,7 +31,7 @@
                   />
                 </div>
                 <div class="d-grid">
-                  <button type="submit" class="btn btn-grad">Login</button>
+                  <button type="submit" class="btn btn-grad"><router-link to="/products">Login</router-link></button>
                 </div>
               </form>
             </div>
