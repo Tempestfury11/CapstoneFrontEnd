@@ -1,7 +1,6 @@
 <template>
   <div class="main">
-    <div class="conatiner">
-      <div slider="center: true">
+    <div slider="center: true">
       <div class="position-relative visible-toggle" tabindex="-1">
         <ul
           class="slider-items child-width-1-2@s child-width-1-4@l child-width-1-4@m grid"
@@ -10,34 +9,27 @@
             <div class="panel">
               <div class="box-container row">
                 <div
+                  class="col-sm-3"
                   v-for="(product, index) in products"
                   :key="index"
-                  class="card col-md-4 col-lg-3 col-xm-12 col-sm-6 m-2"
                 >
-                  <div class="pic">
-                    <img
-                      :src="product.img"
-                      alt="productImage"
-                      id="item-img"
-                      class="img-fluid image"
-                    />
-                  </div>
-                  <div class="content">
-                    <h3 class="title text-white">{{ product.title }}</h3>
-                  </div>
-                  <br />
-                  <div class="row justify-content-center social text-center">
-                    <div class="col-sm-6 text-center justify-content-center">
-                      <router-link
-                        :to="{ name: 'product', params: { id: product.id } }"
-                      >
-                        <button
-                          id="adminButton"
-                          class="justify-content-center text-center btn-grad btn"
+                  <div class="card">
+                    <div class="card-img">
+                      <img id="image" class="img-fluid" :src="product.img" />
+                    </div>
+                    <div class="card-info">
+                      <p class="text-title text-light">
+                        {{ product.title }}
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      <div class="btn-container">
+                        <router-link
+                          :to="{ name: 'product', params: { id: product.id } }"
                         >
-                          View Product
-                        </button>
-                      </router-link>
+                          <button class="btn btn-grad">View Product</button>
+                        </router-link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -46,7 +38,6 @@
           </li>
         </ul>
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -104,67 +95,7 @@ li {
   flex-flow: row nowrap;
   overflow-x: scroll;
 }
-.box-container .card {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: transparent;
-  box-shadow: 0 0 20px #eee;
-}
-.box-container .card:before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 0;
-  transition: all 0.5s ease;
-}
-.box-container .card:hover .pic {
-  width: 150px;
-  height: 150px;
-  margin-top: 50px;
-  box-shadow: 0 0 20px #eee;
-}
-.box-container .card .pic {
-  position: relative;
-  left: 50%;
-  top: 15%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 150px;
-  overflow: hidden;
-  transition: all 0.5s ease;
-  background: #fff;
-  box-shadow: 0 0 20px #eee;
-}
-.box-container .card .pic img {
-  width: 100%;
-  height: 100%;
-}
-.box-container .card .content {
-  margin-top: 90px;
-  text-align: center;
-  padding: 0 30px;
-  color: #2d3436;
-  transition: margin-right 0.5s ease;
-}
-.box-container .card .content .title {
-  margin-bottom: 0;
-  font-family: "Yantramanav", sans-serif;
-  font-size: 22px;
-}
-.box-container .card .content span {
-  font-size: 12px;
-  letter-spacing: 1.5px;
-}
-.box-container .card .content p {
-  margin: 20px 0;
-  font-size: 12px;
-  line-height: 1.6;
-  color: #b0b0b0;
-}
+
 .btn-grad {
   background-image: linear-gradient(
     to right,
@@ -186,5 +117,96 @@ li {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
+}
+
+#image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  /* object-fit: cover */
+}
+.main {
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow-x: hidden;
+  padding: 100px 0;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.card {
+  max-width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.8em;
+  background: transparent;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 0 20px #eee;
+}
+
+.card-img {
+  background-color: transparent;
+  height: 40%;
+  width: 100%;
+  border-radius: 0.5rem;
+  transition: 0.3s ease;
+}
+
+.card-info {
+  padding-top: 10%;
+}
+
+svg {
+  width: 20px;
+  height: 20px;
+}
+
+.card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 2px solid white;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+
+/*Text*/
+.text-title {
+  font-weight: 900;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.text-body {
+  font-size: 0.9em;
+  padding-bottom: 10px;
+}
+
+/*Button*/
+.card-button {
+  border: 1px solid white;
+  display: flex;
+  padding: auto;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: 0.3s ease-in-out;
+}
+
+/*Hover*/
+.card-img:hover {
+  transform: translateY(-15%);
+  /* box-shadow: 0 0 10px #eee; */
 }
 </style>

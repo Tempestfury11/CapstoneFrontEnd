@@ -1,20 +1,6 @@
 <template>
-  
-    <div class="main">
-      <div class="container">
-        <div class="row">
-      <ProductsCard
-        v-for="product in filteredproducts"
-        :key="product.id"
-        :product="product"
-      ></ProductsCard>
-    </div>
-      <input
-            class="SB"
-            type="text"
-            v-model="search"
-            placeholder="Search"
-          />
+  <div class="main">
+    <div class="container">
       <div class="row justify-content-center">
         <div class="col-sm-3" v-for="(product, index) in products" :key="index">
           <div class="card">
@@ -45,26 +31,14 @@
 
 <script>
 export default {
-  data(){
-    return{
-      search:"",
-
-    };
-  },
   mounted() {
     this.$store.dispatch("getproducts");
     this.$store.dispatch("getproduct");
   },
   computed: {
-    filteredproducts() {
-      return this.$store.state.products?.filteredproducts((product
-      )=>{
-        return product.title?.toLowerCase().includes(this.search.toLowerCase());
-      });
-    },
     products() {
-     return this.$store.state.products;
-    }
+      return this.$store.state.products;
+    },
   },
 };
 </script>
@@ -192,8 +166,5 @@ svg {
 .card-img:hover {
   transform: translateY(-15%);
   /* box-shadow: 0 0 10px #eee; */
-}
-.SB{
-margin-bottom: 0rem;
 }
 </style>

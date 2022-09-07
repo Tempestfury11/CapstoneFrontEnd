@@ -6,15 +6,16 @@ const TempestGamingUrl = "https://marshalinocapstone.herokuapp.com/";
 export default createStore({
   state: {
     users: null,
-    user: null || {
-      id: 4,
-      firstName: "Shane",
-      lastName: "Stevens",
-      email: "Shane@gmail.com",
-      phoneNo: "0618445577",
-      password:"$2b$16$KdUdJJ4K1ANKK6vdyv3ZTemwEz9hKWmsa7U25I8zgXdifYs0oNrd2",
-      cart: '[{"cart_id":1,"id":1,"title":"Elden Ring","price":1300,"category":"RPG","description":"What\'s the story of Elden Ring? The basics of the Elden Ring story are that the Lands Between were blessed by the Greater Will (a type of unknowable god obsessed with Order over Chaos), who sent down the Elden Ring – a magical object that changed the Lands Between according to its whims.","img":"https://i.postimg.cc/B6mzSyWQ/eldenring.png"}]',
-    },
+    user: null,
+    // {
+    //   id: 4,
+    //   firstName: "Shane",
+    //   lastName: "Stevens",
+    //   email: "Shane@gmail.com",
+    //   phoneNo: "0618445577",
+    //   password:"$2b$16$KdUdJJ4K1ANKK6vdyv3ZTemwEz9hKWmsa7U25I8zgXdifYs0oNrd2",
+    //   cart: '[{"cart_id":1,"id":1,"title":"Elden Ring","price":1300,"category":"RPG","description":"What\'s the story of Elden Ring? The basics of the Elden Ring story are that the Lands Between were blessed by the Greater Will (a type of unknowable god obsessed with Order over Chaos), who sent down the Elden Ring – a magical object that changed the Lands Between according to its whims.","img":"https://i.postimg.cc/B6mzSyWQ/eldenring.png"}]',
+    // }
     products: null,
     product: null,
     message: null,
