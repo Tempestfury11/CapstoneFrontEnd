@@ -8,6 +8,7 @@
             placeholder="Search..."
             v-model="search"
             class="form-control mb-5"
+            id="drops"
           />
         </div>
         <div class="col-md-2">
@@ -15,12 +16,12 @@
             class="form-select"
             @change="sortPrice"
             name=""
-            id=""
+            id="drops"
             v-model="price"
           >
-            <option value="" selected disabled>Sort by Price</option>
-            <option value="asc">Lowest to Highest</option>
-            <option value="desc">Highest to Lowest</option>
+            <option id="drops" value="" selected disabled>Sort by Price</option>
+            <option id="drops" value="asc">Lowest to Highest</option>
+            <option id="drops" value="desc">Highest to Lowest</option>
           </select>
         </div>
       </div>
@@ -103,6 +104,10 @@ export default {
 </script>
 
 <style scoped>
+#drops{
+  background-color: #434343 ;
+  color: white
+}
 #search{
   padding: 0 0 50px 0;
 }
