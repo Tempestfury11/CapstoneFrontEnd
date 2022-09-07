@@ -100,6 +100,9 @@ export default {
 </script>
 
 <style scoped>
+a{
+  text-decoration: none;
+}
 #main {
   background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
   background-size: cover;
@@ -127,6 +130,10 @@ export default {
   border-radius: 10px;
   display: block;
   text-decoration: none;
+}
+
+a:hover{
+  color: white;
 }
 
 .btn-grad:hover {
