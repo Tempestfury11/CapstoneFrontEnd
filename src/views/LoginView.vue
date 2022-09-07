@@ -69,6 +69,12 @@ export default {
 </script>
 
 <style scoped>
+a:hover{
+  color: white;
+}
+a{
+  text-decoration: none;
+}
 .btn-grad {
   background-image: linear-gradient(
     to right,
