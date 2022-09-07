@@ -1,25 +1,57 @@
 <template>
   <div class="main">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-sm-3" v-for="(product, index) in products" :key="index">
-          <div class="card">
-            <div class="card-img">
-              <img id="image" class="img-fluid" :src="product.img" />
-            </div>
-            <div class="card-info">
-              <p class="text-title text-light">
-                {{ product.title }}
-              </p>
-            </div>
-            <div class="card-footer">
-              <div class="btn-container">
-                <span class="text-title text-light">R{{ product.price }}</span>
-                <router-link
-                  :to="{ name: 'product', params: { id: product.id } }"
-                >
-                  <button class="btn btn-grad">View Product</button>
-                </router-link>
+      <div class="row">
+        <div class="col-md-2">
+          <input
+            type="text"
+            placeholder="Search..."
+            v-model="search"
+            class="form-control mb-5"
+          />
+        </div>
+        <div class="col-md-2">
+          <select
+            class="form-select"
+            @change="sortPrice"
+            name=""
+            id=""
+            v-model="price"
+          >
+            <option value="" selected disabled>Sort by Price</option>
+            <option value="asc">Lowest to Highest</option>
+            <option value="desc">Highest to Lowest</option>
+          </select>
+        </div>
+      </div>
+
+      <div v-if="products">
+        <div class="row justify-content-center">
+          <div
+            class="col-sm-3"
+            v-for="(product, index) in products"
+            :key="index"
+          >
+            <div class="card">
+              <div class="card-img">
+                <img id="image" class="img-fluid" :src="product.img" />
+              </div>
+              <div class="card-info">
+                <p class="text-title text-light">
+                  {{ product.title }}
+                </p>
+              </div>
+              <div class="card-footer">
+                <div class="btn-container">
+                  <span class="text-title text-light"
+                    >R{{ product.price }}</span
+                  >
+                  <router-link
+                    :to="{ name: 'product', params: { id: product.id } }"
+                  >
+                    <button class="btn btn-grad">View Product</button>
+                  </router-link>
+                </div>
               </div>
             </div>
           </div>
@@ -31,13 +63,40 @@
 
 <script>
 export default {
+  data() {
+    return {
+      search: "",
+      price: "",
+    };
+  },
   mounted() {
     this.$store.dispatch("getproducts");
     this.$store.dispatch("getproduct");
   },
   computed: {
     products() {
-      return this.$store.state.products;
+      return this.$store.state.products?.filter((product) => {
+        let isMatch = true;
+        if (!product.title.toLowerCase().includes(this.search)) {
+          isMatch = false;
+        }
+        return isMatch;
+      });
+    },
+  },
+  methods: {
+    sortPrice() {
+      let sort = this.price;
+
+      if (sort === "asc") {
+        this.$store.state.products.sort((a, b) => {
+          return a.price - b.price;
+        });
+      } else if (sort === "desc") {
+        this.$store.state.products.sort((a, b) => {
+          return b.price - a.price;
+        });
+      }
     },
   },
 };
