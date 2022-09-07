@@ -6,16 +6,16 @@
             <div class="card-img">
               <img id="image" class="img-fluid" :src="product[0].img" />
             </div>
+            <div class="card-info">
+              <p class="text-title text-light">
+                {{ product[0].description }}
+              </p>
+            </div>
             <div class="card-footer">
               <div class="btn-container">
                 <span class="text-title text-light">R{{ product[0].price }}</span>
                 <button class="btn btn-grad" @click="this.$store.dispatch('addToCart', {id: product[0].id})">Add To Cart</button>
               </div>
-            </div>
-            <div class="card-info">
-              <p class="text-title text-light">
-                {{ product[0].description }}
-              </p>
             </div>
           </div>
         </div>

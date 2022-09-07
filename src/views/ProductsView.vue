@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="container">
-      <div class="row">
+      <div class="row justify-content-center text-center">
         <div class="col-md-2">
           <input
             type="text"
@@ -154,7 +154,7 @@ a {
   background-repeat: no-repeat;
   height: 100%;
   overflow-x: hidden;
-  padding: 100px 0;
+  padding: 200px 0;
   text-align: center;
   align-content: center;
   justify-content: center;
