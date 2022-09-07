@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="container">
-      <div class="row justify-content-center text-center">
+      <div id="search" class="row justify-content-center text-center">
         <div class="col-md-2">
           <input
             type="text"
@@ -103,6 +103,9 @@ export default {
 </script>
 
 <style scoped>
+#search{
+  padding: 0 0 50px 0;
+}
 .btn-container {
   text-align: center;
   align-content: center;
