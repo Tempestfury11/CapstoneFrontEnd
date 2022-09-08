@@ -50,7 +50,7 @@ export default createStore({
       // fecth from body
       const { firstName, lastName, email, phoneNo, password } = payload;
       // fetch method from api
-      await fetch("http://localhost:4001/register", {
+      await fetch("http://localhost:4000/register", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
