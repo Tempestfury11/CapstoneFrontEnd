@@ -6,7 +6,7 @@ const TempestGamingUrl = "https://marshalinocapstone.herokuapp.com/";
 export default createStore({
   state: {
     users: null,
-    user: null,
+    user: null || JSON.parse(localStorage.getItem('user')),
     products: null,
     product: null,
     message: null,
@@ -24,6 +24,7 @@ export default createStore({
       state.users = users;
     },
     setUser(state, user) {
+      localStorage.setItem('user',JSON.stringify(user))
       state.user = user;
     },
     setProducts(state, products) {
@@ -88,6 +89,7 @@ export default createStore({
     logout : (context) => {
       context.state.user = null
       console.log(context.state.user)
+      localStorage.removeItem('user')
       window.location.reload()
     },
     // get users

@@ -16,6 +16,7 @@
             <label for="Name">Name</label>
             <input
               type="text"
+              name="name"
               class="form-control rounded mb-3 form-input"
               id="name"
               placeholder=""

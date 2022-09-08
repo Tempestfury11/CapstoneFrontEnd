@@ -21,13 +21,13 @@
         >
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" v-if="this.$store.state.user == null">
         <router-link :to="{ name: 'login' }"
           ><i class="fa-solid fa-door-closed"></i>LOGIN</router-link
         >
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" v-if="this.$store.state.user == null">
         <router-link :to="{ name: 'register' }"
           ><i class="fa-solid fa-pen"></i>REGISTER</router-link
         >
