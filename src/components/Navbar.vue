@@ -51,8 +51,9 @@
         >
       </li>
 
-      <li class="nav-item" v-if="user != null">
-        <button @click="this.$store.dispatch('logout')"><i class="fa-solid fa-power-off"></i>
+      <li class="nav-item mt-3" v-if="user != null">
+        <button @click="this.$store.dispatch('logout')">
+        <i class="fa-solid fa-power-off">Logout</i>
         </button>
       </li>
 
