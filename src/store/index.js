@@ -50,7 +50,7 @@ export default createStore({
       // fecth from body
       const { firstName, lastName, email, phoneNo, password } = payload;
       // fetch method from api
-      await fetch("https://marshalinocapstone.herokuapp.com/register", {
+      await fetch("http://localhost:4001/register", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -61,7 +61,7 @@ export default createStore({
           lastName: lastName,
           email: email,
           phoneNo: phoneNo,
-          password: password,
+          password: password
         }),
       })
         .then((response) => response.json())
@@ -72,7 +72,7 @@ export default createStore({
     // login
     login(context, payload) {
       // console.log(payload);
-      fetch(TempestGamingUrl + "login", {
+      fetch('http://localhost:4001/login', {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -81,14 +81,20 @@ export default createStore({
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log(data);
           if (data.msg === "Login Failed.") {
           } else {
             context.commit("setUser", data.user);
-            console.log(data.user);
             context.dispatch("getCart", context.state.user.id);
             router.push({ name: "products" });
           }
         });
+    },
+    // Logout
+    logout : (context) => {
+      context.state.user = null
+      console.log(context.state.user)
+      window.location.reload()
     },
     // get users
     getusers: async (context) => {

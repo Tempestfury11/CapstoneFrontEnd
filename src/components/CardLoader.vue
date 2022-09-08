@@ -2,14 +2,13 @@
   <div class="main">
     <div slider="center: true">
       <div class="position-relative visible-toggle" tabindex="-1">
-        <ul
-          class="slider-items child-width-1-2@s child-width-1-4@l child-width-1-4@m grid"
+        <ul class="slider-items child-width-1-2@s child-width-1-4@l child-width-1-4@m grid"
         >
           <li>
             <div class="panel">
               <div class="box-container row">
                 <div
-                  class="col-sm-3"
+                  class="col-sm-2"
                   v-for="(product, index) in products"
                   :key="index"
                 >
@@ -114,7 +113,7 @@ li {
 }
 
 .btn-grad:hover {
-  background-position: right center; /* change the direction of the change here */
+  background-position: right center;
   color: #fff;
   text-decoration: none;
 }
@@ -123,8 +122,8 @@ li {
   width: 150px;
   height: 150px;
   border-radius: 10px;
-  /* object-fit: cover */
 }
+
 .main {
   background-image: linear-gradient(
     to right,
@@ -136,8 +135,7 @@ li {
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
-  overflow-x: hidden;
-  padding: 100px 0;
+  overflow-x: hidden; 
   text-align: center;
   align-content: center;
   justify-content: center;

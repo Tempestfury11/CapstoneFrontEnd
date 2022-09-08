@@ -33,14 +33,14 @@
         >
       </li>
 
-      <li class="nav-item">
-        <router-link :to="{ name: 'products' }"
+      <li class="nav-item" v-if="user">
+        <router-link v-if="user.userRole == 'admin'" :to="{ name: 'products' }"
           ><i class="fa-solid fa-gamepad"></i>PRODUCTS</router-link
         >
       </li>
 
-      <li class="nav-item">
-        <router-link :to="{ name: 'admin' }"
+      <li class="nav-item" v-if="user">
+        <router-link v-if="user.userRole == 'admin'" :to="{ name: 'admin' }"
           ><i class="fa-solid fa-screwdriver-wrench"></i>ADMIN</router-link
         >
       </li>
@@ -50,6 +50,12 @@
           ><i class="fa-solid fa-phone"></i>CONTACT</router-link
         >
       </li>
+
+      <li class="nav-item" v-if="user != null">
+        <button class @click="this.$store.dispatch('logout')"><i class="fa-solid fa-power-off"></i>
+        </button>
+      </li>
+
       <li class="nav-item">
         <span id="cart">
           <Cart />
@@ -103,7 +109,6 @@ a {
 .header li a {
   display: block;
   padding: 20px 20px;
-  /* border-right: 1px solid white; */
   text-decoration: none;
 }
 
@@ -195,8 +200,6 @@ a {
 .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
   top: 0;
 }
-
-/* 48em = 768px */
 
 @media (min-width: 48em) {
   .header li {
