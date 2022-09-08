@@ -52,7 +52,7 @@
       </li>
 
       <li class="nav-item" v-if="user != null">
-        <button class @click="this.$store.dispatch('logout')"><i class="fa-solid fa-power-off"></i>
+        <button @click="this.$store.dispatch('logout')"><i class="fa-solid fa-power-off"></i>
         </button>
       </li>
 
@@ -88,9 +88,6 @@ export default {
 <style>
 a {
   color: white;
-}
-a:active {
-  text-decoration:red underline 
 }
 /* header */
 .header {
@@ -142,6 +139,7 @@ a:active {
 .header .menu-icon {
   cursor: pointer;
   display: inline-block;
+  /* float: right; */
   padding: 28px 20px;
   position: relative;
   user-select: none;

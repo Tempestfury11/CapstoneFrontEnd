@@ -8,7 +8,7 @@
             <div class="panel">
               <div class="box-container row">
                 <div
-                  class="col-sm-2"
+                  class="col-sm-3"
                   v-for="(product, index) in products"
                   :key="index"
                 >
