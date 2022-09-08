@@ -11,48 +11,49 @@
     ></label>
     <ul class="menu">
       <li class="nav-item">
-        <router-link :to="{ name: 'home' }"
+        <router-link @click="closeNav" :to="{ name: 'home' }"
           ><i class="bi bi-house-door-fill"></i>HOME</router-link
         >
       </li>
+
       <li class="nav-item">
-        <router-link :to="{ name: 'about' }"
+        <router-link @click="closeNav" :to="{ name: 'about' }"
           ><i class="bi bi-file-person-fill"></i>ABOUT</router-link
         >
       </li>
 
       <li class="nav-item">
-        <router-link :to="{ name: 'login' }"
+        <router-link @click="closeNav" :to="{ name: 'login' }"
           ><i class="fa-solid fa-door-closed"></i>LOGIN</router-link
         >
       </li>
 
       <li class="nav-item">
-        <router-link :to="{ name: 'register' }"
+        <router-link @click="closeNav" :to="{ name: 'register' }"
           ><i class="fa-solid fa-pen"></i>REGISTER</router-link
         >
       </li>
 
       <li class="nav-item" v-if="user">
-        <router-link v-if="user.userRole == 'admin'" :to="{ name: 'products' }"
+        <router-link @click="closeNav" v-if="user.userRole == 'admin'" :to="{ name: 'products' }"
           ><i class="fa-solid fa-gamepad"></i>PRODUCTS</router-link
         >
       </li>
 
       <li class="nav-item" v-if="user">
-        <router-link v-if="user.userRole == 'admin'" :to="{ name: 'admin' }"
+        <router-link @click="closeNav" v-if="user.userRole == 'admin'" :to="{ name: 'admin' }"
           ><i class="fa-solid fa-screwdriver-wrench"></i>ADMIN</router-link
         >
       </li>
 
       <li class="nav-item">
-        <router-link :to="{ name: 'contact' }"
+        <router-link @click="closeNav" :to="{ name: 'contact' }"
           ><i class="fa-solid fa-phone"></i>CONTACT</router-link
         >
       </li>
 
       <li class="nav-item" v-if="user != null">
-        <button class @click="this.$store.dispatch('logout')"><i class="fa-solid fa-power-off"></i>
+        <button @click="this.$store.dispatch('logout')"><i class="fa-solid fa-power-off"></i>
         </button>
       </li>
 
@@ -88,6 +89,9 @@ export default {
 <style>
 a {
   color: white;
+}
+a:active {
+  text-decoration:red underline 
 }
 /* header */
 .header {
@@ -139,7 +143,6 @@ a {
 .header .menu-icon {
   cursor: pointer;
   display: inline-block;
-  /* float: right; */
   padding: 28px 20px;
   position: relative;
   user-select: none;
