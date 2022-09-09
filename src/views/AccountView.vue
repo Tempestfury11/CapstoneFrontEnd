@@ -52,18 +52,6 @@
                 @input="changeEmailColor"
               />
             </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">New Password</label>
-              <input
-                type="text"
-                v-model="user.Password"
-                class="form-control"
-                name="password"
-                placeholder="Enter a New Passowrd"
-                id="password"
-                required
-              />
-            </div>
             <div class="container">
               <div class="row">
                 <div class="col">
@@ -78,6 +66,11 @@
                   </div>
                   <EditUserModal :user="user"></EditUserModal>
                 </div>
+                <div class="col">            <button class="btn-grad"
+             id="delete"
+               v-on:click="$store.dispatch('deleteUser', user.id)">
+               <router-link to="/admin">Delete</router-link>
+            </button></div>
               </div>
             </div>
           </form>
@@ -94,11 +87,15 @@
 import EditUserModal from '../components/EditUserModal.vue';
 export default {
   props:['user'],
+  components:{
+    EditUserModal
+  },
   computed: {
     user() {
       return this.$store.state.user;
     },
   },
+
   methods: {
         editUser() {
             return this.$store.dispatch("editUser", this.user);

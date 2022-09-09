@@ -47,14 +47,6 @@
       props:['user'],
       methods:{
         updateuser(){
-    //         const payload = {
-    //             id: this.id,
-    // firstName: this.user.firstName,
-    // lastName: this.user.lastName,
-    // email: this.user.email,
-    // phoneNo: this.user.phoneNo,
-    // password: this.user.password
-    //         }
               this.$store.dispatch('updateuser', this.user);
           }
       }
