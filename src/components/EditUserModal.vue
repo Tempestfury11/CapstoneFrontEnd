@@ -15,7 +15,7 @@
               </div>
   
               <div class="modal-body">
-                  <form method="PUT" @submit.prevent="editUser">
+                  <form method="PUT" @submit.prevent="updateuser">
                       <label class="form-label">ID</label>
                       <input type="number" class="form-control" :value="user.id" readonly>
                       <label class="form-label">First Name</label>
@@ -43,16 +43,16 @@
   export default {
       props:['user'],
       methods:{
-          editUser(){
-            //   let newUser = {
-            //       id: this.user.id,
-            //       firstName: this.user.firstName,
-            //       lastName: this.user.lastName,
-            //       email: this.user.email,
-            //       phoneNo: this.user.phoneNo,
-            //       password: this.user.password
-            //   }
-              this.$store.dispatch('editUser',this.user);
+        updateuser(id){
+            const payload = {
+                id: id,
+    firstName: this.user.firstName,
+    lastName: this.user.lastName,
+    email: this.user.email,
+    phoneNo: this.user.phoneNo,
+    password: this.user.password
+            }
+              this.$store.dispatch('updateuser', payload);
           }
       }
   }

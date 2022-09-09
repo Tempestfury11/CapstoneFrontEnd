@@ -50,8 +50,8 @@ export default {
         },
     },
     methods: {
-        edituser() {
-            return this.$store.dispatch("edituser", this.user);
+      updateuser() {
+            return this.$store.dispatch("updateuser", this.user);
         },
     },
     components: { EditUserModal }

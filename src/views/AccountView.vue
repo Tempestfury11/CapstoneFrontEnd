@@ -2,13 +2,6 @@
   <div id="main">
     <div v-if="user" class="container text-white">
       <div class="row">
-        <div class="col-sm-3">
-          <div id="logout">
-            <div class="container justify-content-center align-items-center">
-              <button class="btn-grad" @click="reloadPage()">LOGOUT</button>
-            </div>
-          </div>
-        </div>
         <div id="account">
           <h2>Welcome back</h2>
           <h4>{{ user.firstName }} {{ user.lastName }}</h4>
@@ -17,7 +10,7 @@
               <div class="col-lg-6 mb-3 mt-4 mt-md-0">
                 <label for="firstName" class="form-label">First Name</label>
                 <input
-                  v-model="firstName"
+                  v-model="user.firstName"
                   type="text"
                   class="form-control"
                   name="firstName"
@@ -29,7 +22,7 @@
                 <label for="lastName" class="form-label">Last Name</label>
                 <input
                   type="text"
-                  v-model="lastName"
+                  v-model="user.lastName"
                   class="form-control"
                   name="lastName"
                   id="lastName"
@@ -40,7 +33,7 @@
             <div class="mb-3">
               <label for="phoneNo" class="form-label">Phone Number</label>
               <input
-                v-model="phoneNo"
+                v-model="user.phoneNo"
                 type="number"
                 class="form-control"
                 name="phoneNo"
@@ -52,7 +45,7 @@
               <label for="email" class="form-label">Email</label>
               <input
                 type="email"
-                v-model="email"
+                v-model="user.email"
                 class="form-control"
                 name="email"
                 id="email"
@@ -63,7 +56,7 @@
               <label for="password" class="form-label">New Password</label>
               <input
                 type="text"
-                v-model="userPassword"
+                v-model="user.Password"
                 class="form-control"
                 name="password"
                 placeholder="Enter a New Passowrd"
@@ -83,9 +76,7 @@
                       <Loader :small="true" />
                     </div>
                   </div>
-                  <button v-else type="submit" class="btn-grad">
-                    Save Changes
-                  </button>
+                  <EditUserModal :user="user"></EditUserModal>
                 </div>
               </div>
             </div>
@@ -100,18 +91,19 @@
 </template>
 
 <script>
+import EditUserModal from '../components/EditUserModal.vue';
 export default {
+  props:['user'],
   computed: {
     user() {
       return this.$store.state.user;
     },
   },
-  // components: { Footer },
   methods: {
-    reloadPage() {
-      window.location.reload();
+        editUser() {
+            return this.$store.dispatch("editUser", this.user);
+        },
     },
-  },
 };
 </script>
 
