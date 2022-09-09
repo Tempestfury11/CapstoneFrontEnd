@@ -81,13 +81,17 @@
 
 <script>
 export default {
+  props: ["product_id"],
   mounted() {
     this.$store.dispatch("getusers");
   },
   computed: {
     users() {
-      return this.$store.state.users;
+      return this.$store.state.user;
     },
+  },
+  mounted() {
+    this.$store.dispatch("getUser")
   },
 };
 </script>

@@ -1,5 +1,4 @@
 <template>
-  
   <a
     class="btn text-white"
     data-bs-toggle="offcanvas"
