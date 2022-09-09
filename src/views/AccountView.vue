@@ -1,33 +1,15 @@
 <template>
-  <div
-    id="main"
-    v-if="currentUser"
-    class="account container d-flex justify-content-center align-items-center flex-column"
-  >
-    <h2 class="pb-5">MANAGE YOUR ACCOUNT</h2>
+  <div id="main" v-if="currentUser" class="account container d-flex justify-content-center align-items-center flex-column">
+  <h2 class="pb-5">MANAGE YOUR ACCOUNT</h2>
     <div id="UserCard" class="row w-100">
-      <div
-        class="col-md-6 d-flex justify-content-center gap-5 align-items-center flex-column"
-      >
+      <div class="col-md-6 d-flex justify-content-center gap-5 align-items-center flex-column">
         <i id="userIcon" class="fa-solid fa-circle-user"></i>
         <div class="d-flex flex-column align-items-center">
-          <button
-            data-bs-toggle="modal"
-            data-bs-target="#userLogout"
-            class="btn btn-grad"
-          >
-            Log Out
-          </button>
-          <button
-            data-bs-toggle="modal"
-            data-bs-target="#userDelete"
-            class="btn btn-grad"
-          >
-            Delete Your Account
-          </button>
+          <button data-bs-toggle="modal" data-bs-target="#userLogout" class="btn btn-grad">Log Out</button>
+          <button data-bs-toggle="modal" data-bs-target="#userDelete" class="btn btn-grad">Delete Your Account</button>
         </div>
-        <DeleteAccountModal />
-        <LogOutModal />
+        <DeleteAccountModal/>
+        <LogOutModal/>
       </div>
       <div class="col-md-6">
         <form @submit="updateUser">
@@ -55,48 +37,80 @@
               />
             </div>
           </div>
+          <div class="row mb-3">
+            <label for="gender" class="form-label">Gender</label><br />
+            <div class="col-md-6">
+              <label id="genderLabel" for="gender" class="form-label">Male</label>
+              <input
+                v-model="gender"
+                type="radio"
+                name="gender"
+                class="mx-3 form-check-input"
+                value="Male"
+              />
+            </div>
+            <div class="col-md-6">
+              <label id="genderLabel" for="gender" class="form-label">Female</label>
+              <input
+                v-model="gender"
+                type="radio"
+                name="gender"
+                class="mx-3 form-check-input"
+                value="Female"
+              />
+            </div>
+          </div>
           <div class="mb-3">
-            <label for="phoneNo" class="form-label">Phone Number</label>
+            <label for="address" class="form-label">Address</label>
             <input
-              v-model="phoneNo"
+              v-model="address"
+              type="text"
+              class="form-control"
+              name="address"
+              id="address"
+              @input="changeAddressColor"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="phoneNumber" class="form-label"
+              >Phone Number</label
+            >
+            <input
+              v-model="phoneNumber"
               type="number"
               class="form-control"
-              name="phoneNo"
-              id="phoneNo"
-              @input="changephoneNoColor"
+              name="phoneNumber"
+              id="phoneNumber"
+              @input="changePhoneNumberColor"
             />
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input
-              type="email"
-              v-model="email"
-              class="form-control"
-              name="email"
-              id="email"
-              @input="changeEmailColor"
-            />
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                v-model="email"
+                class="form-control"
+                name="email"
+                id="email"
+                @input="changeEmailColor"
+              />
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">New Password</label>
-            <input
-              type="text"
-              v-model="userPassword"
-              class="form-control"
-              name="password"
-              placeholder="Enter a New Passowrd"
-              id="password"
-              required
-            />
+              <label for="password" class="form-label">New Password</label>
+              <input
+                type="text"
+                v-model="userPassword"
+                class="form-control"
+                name="password"
+                placeholder="Enter a New Passowrd"
+                id="password" required
+              />
           </div>
           <div>
-            <div
-              v-if="clicked"
-              class="w-100 d-flex justify-content-center align-items-center gap-4"
-            >
+            <div v-if="clicked" class="w-100 d-flex justify-content-center align-items-center gap-4">
               <p class="m-0">Saving...</p>
               <div>
-                <Loader :small="true" />
+                <Loader :small="true"/>
               </div>
             </div>
             <button v-else type="submit" class="w-100 mx-auto btn btn-grad">
@@ -107,143 +121,134 @@
       </div>
     </div>
   </div>
-  <div
-    id="main"
-    v-else
-    class="account container d-flex justify-content-center align-items-center gap-4 flex-column"
-  >
+  <div id="main" v-else class="account container d-flex justify-content-center align-items-center gap-4 flex-column">
     <h1>There is No User Logged in</h1>
     <router-link to="/login">
-      <button class="btn btn-grad">Return to Login Page</button>
+    <button class="btn btn-grad">Return to Login Page</button>
     </router-link>
   </div>
 </template>
 
 <script>
-import DeleteAccountModal from "../components/DeleteAccountModal.vue";
-import LogOutModal from "../components/LogOutModal.vue";
+import DeleteAccountModal from '../components/DeleteAccountModal.vue';
+import LogOutModal from '../components/LogOutModal.vue';
+import Loader from '../components/Loader.vue';
 export default {
-  components: {
-    DeleteAccountModal,
-    LogOutModal,
+  components:{
+    DeleteAccountModal, LogOutModal, Loader
   },
-  data() {
-    return {
+  data(){
+    return{
       id: null,
       firstName: null,
       lastName: null,
       gender: null,
       address: null,
-      phoneNo: null,
+      phoneNumber: null,
       email: null,
       userPassword: null,
-      clicked: false,
-    };
+      clicked:false
+    }
   },
   computed: {
     currentUser() {
       return this.$store.state.currentUser;
     },
   },
-  async mounted() {
-    if (this.currentUser) {
+  async mounted(){
+    if(this.currentUser){
       this.id = this.$store.state.currentUser.id;
       this.firstName = this.$store.state.currentUser.firstName;
       this.lastName = this.$store.state.currentUser.lastName;
-      this.phoneNo = this.$store.state.currentUser.phoneNo;
+      this.gender = this.$store.state.currentUser.gender;
+      this.address = this.$store.state.currentUser.address;
+      this.phoneNumber = this.$store.state.currentUser.phoneNumber;
       this.email = this.$store.state.currentUser.email;
     }
-    window.scrollTo(0, 0);
+    window.scrollTo(0,0);
   },
-  methods: {
-    changeFirstNameColor() {
-      if (this.firstName != this.$store.state.currentUser.firstName) {
-        document.getElementById("firstName").style.background = "#d99";
-      } else {
-        document.getElementById("firstName").style.background = "#FFF";
+  methods:{
+    changeFirstNameColor(){
+      if(this.firstName != this.$store.state.currentUser.firstName){
+        document.getElementById('firstName').style.background = "#d99";
+      }else{
+        document.getElementById('firstName').style.background = "#FFF";
       }
     },
-    changeLastNameColor() {
-      if (this.lastName != this.$store.state.currentUser.lastName) {
-        document.getElementById("lastName").style.background = "#d99";
-      } else {
-        document.getElementById("lastName").style.background = "#FFF";
+    changeLastNameColor(){
+      if(this.lastName != this.$store.state.currentUser.lastName){
+        document.getElementById('lastName').style.background = "#d99";
+      }else{
+        document.getElementById('lastName').style.background = "#FFF";
       }
     },
-    changeEmailColor() {
-      if (this.email != this.$store.state.currentUser.email) {
-        document.getElementById("email").style.background = "#d99";
-      } else {
-        document.getElementById("email").style.background = "#FFF";
+    changeAddressColor(){
+      if(this.address != this.$store.state.currentUser.address){
+        document.getElementById('address').style.background = "#d99";
+      }else{
+        document.getElementById('address').style.background = "#FFF";
       }
     },
-    changephoneNoColor() {
-      if (this.phoneNo != this.$store.state.currentUser.phoneNo) {
-        document.getElementById("phoneNo").style.background = "#d99";
-      } else {
-        document.getElementById("phoneNo").style.background = "#FFF";
+    changeEmailColor(){
+      if(this.email != this.$store.state.currentUser.email){
+        document.getElementById('email').style.background = "#d99";
+      }else{
+        document.getElementById('email').style.background = "#FFF";
       }
     },
-    updateUser(e) {
+    changePhoneNumberColor(){
+      if(this.phoneNumber != this.$store.state.currentUser.phoneNumber){
+        document.getElementById('phoneNumber').style.background = "#d99";
+      }else{
+        document.getElementById('phoneNumber').style.background = "#FFF";
+      }
+    },
+    updateUser(e){
       e.preventDefault();
       this.clicked = true;
       let newUser = {
         id: this.$store.state.currentUser.id,
         firstName: this.firstName,
         lastName: this.lastName,
+        gender: this.gender,
+        address: this.address,
         email: this.email,
-        phoneNo: this.phoneNo,
-        userPassword: this.userPassword,
-      };
-      this.$store.dispatch("updateUser", newUser);
-      setTimeout(() => {
+        phoneNumber: this.phoneNumber,
+        userPassword: this.userPassword
+      }
+      this.$store.dispatch('updateUser',newUser);
+      setTimeout(()=>{
         this.clicked = false;
-      }, 1500);
-    },
-  },
+      },1500)
+    }
+  }
 };
 </script>
 
 <style scoped>
-#main {
-  background-image: linear-gradient(
-    to right,
-    #000000 0%,
-    #434343 51%,
-    #000000 100%
-  );
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100%;
-  overflow-x: hidden;
-  padding: 100px 0;
-  text-align: center;
-}
-
 #userIcon {
   font-size: 12rem;
 }
 
-::placeholder {
+::placeholder{
   opacity: 0.5;
 }
 
-#UserCard {
+#UserCard{
   box-shadow: 0 0 14px #eee;
-  padding: 50px;
+  padding: 50px; 
 }
 
-#genderLabel {
-  width: 66px !important;
+#genderLabel{
+  width:66px !important;
 }
 
 .btn-grad {
   background-image: linear-gradient(
     to right,
-    #000000 0%,
-    #434343 51%,
-    #000000 100%
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
   );
   margin: 10px;
   padding: 10px 15px;
@@ -263,9 +268,9 @@ export default {
   text-decoration: none;
 }
 
-@media screen and (max-width: 768px) {
-  #main {
-    padding-top: 20px;
+@media screen and (max-width:768px) {
+  #main{
+    padding-top:20px
   }
 }
 </style>

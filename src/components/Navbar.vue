@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <input class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon bg-dark" for="menu-btn"
+    <label class="menu-icon" for="menu-btn"
       ><img
         class="img-fluid"
         src="https://i.postimg.cc/Yqcq57t6/click-removebg-preview.png"
@@ -34,7 +34,7 @@
       </li>
 
       <li class="nav-item" v-if="user">
-        <router-link v-if="user.userRole == 'admin'" :to="{ name: 'products' }"
+        <router-link v-if="user" :to="{ name: 'products' }"
           ><i class="fa-solid fa-gamepad"></i>PRODUCTS</router-link
         >
       </li>
@@ -140,13 +140,9 @@ a {
 .header .menu-icon {
   cursor: pointer;
   display: inline-block;
-  /* float: right; */
   padding: 28px 20px;
   position: relative;
   user-select: none;
-  background: white;
-  background-color: white;
-  color: red;
 }
 
 .header .menu-icon .navicon {
