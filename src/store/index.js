@@ -6,12 +6,12 @@ const TempestGamingUrl = "https://marshalinocapstone.herokuapp.com/";
 export default createStore({
   state: {
     users: null,
-    user: null || JSON.parse(localStorage.getItem('user')),
+    user: null || JSON.parse(localStorage.getItem("user")),
     products: null,
     product: null,
     message: null,
     cart: null,
-    msg : null
+    msg: null,
   },
   getters: {
     getUsers: (state) => state.users,
@@ -24,7 +24,7 @@ export default createStore({
       state.users = users;
     },
     setUser(state, user) {
-      localStorage.setItem('user',JSON.stringify(user))
+      localStorage.setItem("user", JSON.stringify(user));
       state.user = user;
     },
     setProducts(state, products) {
@@ -54,20 +54,20 @@ export default createStore({
           lastName: lastName,
           email: email,
           phoneNo: phoneNo,
-          password: password
+          password: password,
         }),
       })
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          context.state.msg = data.msg
-          router.push('/login')
+          context.state.msg = data.msg;
+          router.push("/login");
         });
     },
     // login
     login(context, payload) {
       // console.log(payload);
-      fetch('https://marshalinocapstone.herokuapp.com/login', {
+      fetch("https://marshalinocapstone.herokuapp.com/login", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -86,11 +86,11 @@ export default createStore({
         });
     },
     // Logout
-    logout : (context) => {
-      context.state.user = null
-      console.log(context.state.user)
-      localStorage.removeItem('user')
-      window.location.reload()
+    logout: (context) => {
+      context.state.user = null;
+      console.log(context.state.user);
+      localStorage.removeItem("user");
+      window.location.reload();
     },
     // get users
     getusers: async (context) => {
@@ -122,28 +122,17 @@ export default createStore({
     },
     // update user
     updateuser: async (context, user) => {
-      // fecth from body
-      const { firstName, lastName, email, phoneNo, password } = payload;
-      // fetch method from api
       fetch("https://marshalinocapstone.herokuapp.com/users/" + user.id, {
         method: "PUT",
-        body: JSON.stringify(product),
+        body: JSON.stringify(user),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
-        // fetch data from form
-        body: JSON.stringify({
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
-          phoneNo: phoneNo,
-          password: password,
-        }),
       })
         .then((res) => res.json())
         .then((data) => {
-          alert(data.msg);
-          context.dispatch("getUsers");
+          console.log(data.msg);
+          context.dispatch("getusers");
         });
     },
     // get products
@@ -238,7 +227,11 @@ export default createStore({
     },
     getCart: async (context) => {
       // fetch
-      let res = await fetch("https://marshalinocapstone.herokuapp.com/users/" + context.state.user.id + "/cart");
+      let res = await fetch(
+        "https://marshalinocapstone.herokuapp.com/users/" +
+          context.state.user.id +
+          "/cart"
+      );
       let data = await res.json();
       let result = data.results;
       console.log(result);
@@ -252,48 +245,64 @@ export default createStore({
 
     addToCart: async (context, product) => {
       console.log(product);
-      await fetch("https://marshalinocapstone.herokuapp.com/users/" + context.state.user.id + "/cart" ,{
-      method : "POST",
-      body: JSON.stringify(product),
-      headers : {
-        "Content-type": "application/json; charset=UTF-8",
-      }
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        context.dispatch("getCart");
-      })
+      await fetch(
+        "https://marshalinocapstone.herokuapp.com/users/" +
+          context.state.user.id +
+          "/cart",
+        {
+          method: "POST",
+          body: JSON.stringify(product),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          context.dispatch("getCart");
+        });
     },
-    
+
     deleteItem: async (context, product) => {
       // console.log(product);
-      await fetch("https://marshalinocapstone.herokuapp.com/users/" + context.state.user.id + "/cart/" + product ,{
-      method : "DELETE",
-      body: JSON.stringify(product),
-      headers : {
-        "Content-type": "application/json; charset=UTF-8",
-      }
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        context.dispatch("getCart");
-      })
+      await fetch(
+        "https://marshalinocapstone.herokuapp.com/users/" +
+          context.state.user.id +
+          "/cart/" +
+          product,
+        {
+          method: "DELETE",
+          body: JSON.stringify(product),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          context.dispatch("getCart");
+        });
     },
 
     clearCart: async (context) => {
-      await fetch("https://marshalinocapstone.herokuapp.com/users/" + context.state.user.id + "/cart" ,{
-      method : "DELETE",
-      headers : {
-        "Content-type": "application/json; charset=UTF-8",
-      }
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        context.dispatch("getCart");
-      })
+      await fetch(
+        "https://marshalinocapstone.herokuapp.com/users/" +
+          context.state.user.id +
+          "/cart",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          context.dispatch("getCart");
+        });
     },
   },
   modules: {},

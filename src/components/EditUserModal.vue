@@ -28,7 +28,10 @@
                       <input type="number" class="form-control" v-model="user.phoneNo">
                       <label class="form-label">Password</label>
                       <input type="text" class="form-control" v-model="user.password">
-                      <button type="submit" class="btn btn-grad">Save Changes</button>
+                      <button 
+                      @click="updateuser"
+                      data-bs-dismiss="modal"
+                      type="submit" class="btn btn-grad">Save Changes</button>
                   </form>
               </div>
               <div class="modal-footer">
@@ -43,16 +46,16 @@
   export default {
       props:['user'],
       methods:{
-        updateuser(id){
-            const payload = {
-                id: id,
-    firstName: this.user.firstName,
-    lastName: this.user.lastName,
-    email: this.user.email,
-    phoneNo: this.user.phoneNo,
-    password: this.user.password
-            }
-              this.$store.dispatch('updateuser', payload);
+        updateuser(){
+    //         const payload = {
+    //             id: this.id,
+    // firstName: this.user.firstName,
+    // lastName: this.user.lastName,
+    // email: this.user.email,
+    // phoneNo: this.user.phoneNo,
+    // password: this.user.password
+    //         }
+              this.$store.dispatch('updateuser', this.user);
           }
       }
   }
