@@ -94,7 +94,7 @@
       </div>
     </div>
     <div v-else>
-      <h1 class="text-center">Please Log in</h1>
+      <h1 class="text-center text-white">Please Log in</h1>
     </div>
   </div>
 </template>
