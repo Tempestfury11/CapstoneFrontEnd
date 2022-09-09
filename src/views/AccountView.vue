@@ -1,4 +1,6 @@
-<div class="background">
+<template>
+<div id="main">
+  <div class="background">
   <div class="container">
     <div>
         <div class="row">
@@ -74,4 +76,31 @@
     </div>
   </div>
 </div>
+</div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    this.$store.dispatch("getusers");
+  },
+  computed: {
+    users() {
+      return this.$store.state.users;
+    },
+  },
+};
+</script>
+
+<style scoped>
+#main {
+  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow-x: hidden;
+  padding: 100px 0;
+  text-align: center;
+}
+</style>

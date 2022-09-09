@@ -296,7 +296,6 @@ export default createStore({
         context.dispatch("getCart");
       })
     },
-    
   },
   modules: {},
 });
