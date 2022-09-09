@@ -64,13 +64,16 @@
                       <Loader :small="true" />
                     </div>
                   </div>
+                  <div>
+                    
+                  </div>
                   <EditUserModal :user="user"></EditUserModal>
-                </div>
-                <div class="col">            <button class="btn-grad"
+                              <button class="btn-grad"
              id="delete"
                v-on:click="$store.dispatch('deleteUser', user.id)">
                <router-link to="/admin">Delete</router-link>
-            </button></div>
+            </button>
+                </div>
               </div>
             </div>
           </form>
@@ -141,6 +144,7 @@ export default {
   border-radius: 10px;
   display: block;
   text-decoration: none;
+  width:110px;
 }
 
 .btn-grad:hover {
