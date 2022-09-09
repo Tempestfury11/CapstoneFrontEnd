@@ -43,7 +43,7 @@ export default createStore({
       // fecth from body
       const { firstName, lastName, email, phoneNo, password } = payload;
       // fetch method from api
-      await fetch("http://localhost:4000/register", {
+      await fetch("https://marshalinocapstone.herokuapp.com/register", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -67,7 +67,7 @@ export default createStore({
     // login
     login(context, payload) {
       // console.log(payload);
-      fetch('http://localhost:4000/login', {
+      fetch('https://marshalinocapstone.herokuapp.com/login', {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -136,14 +136,14 @@ export default createStore({
           firstName: firstName,
           lastName: lastName,
           email: email,
-          phoneNO: phoneNO,
+          phoneNo: phoneNo,
           password: password,
         }),
       })
         .then((res) => res.json())
         .then((data) => {
           alert(data.msg);
-          context.dispatch("getusers");
+          context.dispatch("getUsers");
         });
     },
     // get products
@@ -238,8 +238,7 @@ export default createStore({
     },
     getCart: async (context) => {
       // fetch
-      let res = await fetch("http://localhost:4000/users/" + context.state.user.id + "/cart");
-      // let res = await fetch(TempestGamingUrl + `${context.state.user.id}/cart`);
+      let res = await fetch("https://marshalinocapstone.herokuapp.com/users/" + context.state.user.id + "/cart");
       let data = await res.json();
       let result = data.results;
       console.log(result);
@@ -253,7 +252,7 @@ export default createStore({
 
     addToCart: async (context, product) => {
       console.log(product);
-      await fetch("http://localhost:4000/users/" + context.state.user.id + "/cart" ,{
+      await fetch("https://marshalinocapstone.herokuapp.com/users/" + context.state.user.id + "/cart" ,{
       method : "POST",
       body: JSON.stringify(product),
       headers : {
@@ -269,7 +268,7 @@ export default createStore({
     
     deleteItem: async (context, product) => {
       // console.log(product);
-      await fetch("http://localhost:4000/users/" + context.state.user.id + "/cart/" + product ,{
+      await fetch("https://marshalinocapstone.herokuapp.com/users/" + context.state.user.id + "/cart/" + product ,{
       method : "DELETE",
       body: JSON.stringify(product),
       headers : {
@@ -284,7 +283,7 @@ export default createStore({
     },
 
     clearCart: async (context) => {
-      await fetch("http://localhost:4000/users/" + context.state.user.id + "/cart" ,{
+      await fetch("https://marshalinocapstone.herokuapp.com/users/" + context.state.user.id + "/cart" ,{
       method : "DELETE",
       headers : {
         "Content-type": "application/json; charset=UTF-8",

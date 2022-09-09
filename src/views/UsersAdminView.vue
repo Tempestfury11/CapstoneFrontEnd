@@ -1,5 +1,5 @@
 <template>
-  <div id="main" class="users container-fluid">
+  <div v-if="users" id="main" class="users container-fluid">
     <h1 class="text-white">All Users</h1>
     <div style="overflow-x:auto">
       <table class="table text-white">
@@ -11,7 +11,6 @@
           <th scope="col">Email</th>
           <th scope="col">Phone Number</th>
           <th scope="col">Password</th>
-          <th scope="col">Cart</th>
           <th scope="col">Delete</th>
         </tr>
       </thead>
@@ -23,14 +22,15 @@
           <th scope="row">{{ user.email }}</th>
           <th scope="row">{{ user.phoneNo}}</th>
           <th scope="row">{{ user.password }}</th>
-          <th scope="row">{{ user.cart}}</th>
           <th scope="row">
             <button class="btn-grad"
              id="delete"
                v-on:click="$store.dispatch('deleteUser', user.id)">
                <router-link to="/admin">Delete</router-link>
             </button>
+
           </th>
+          <EditUserModal :user="user"></EditUserModal>
         </tr>
       </tbody>
     </table>
@@ -39,15 +39,22 @@
 </template>
 
 <script>
+import EditUserModal from '../components/EditUserModal.vue';
 export default {
-  mounted() {
-    this.$store.dispatch("getusers");
-  },
-  computed: {
-    users() {
-      return this.$store.state.users;
+    mounted() {
+        this.$store.dispatch("getusers");
     },
-  },
+    computed: {
+        users() {
+            return this.$store.state.users;
+        },
+    },
+    methods: {
+        edituser() {
+            return this.$store.dispatch("edituser", this.user);
+        },
+    },
+    components: { EditUserModal }
 };
 </script>
 

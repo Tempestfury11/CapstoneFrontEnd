@@ -1,59 +1,131 @@
 <template>
-<div id="main">
-  <div v-if="user" class="container text-white">
-    <div class="row">
-      <div id="logout" class="row w-25">
-          <button class="btn-grad" @click=reloadPage()> @LOGOUT</button>
+  <div id="main">
+    <div v-if="user" class="container text-white">
+      <div class="row">
+        <div class="col-sm-3">
+          <div id="logout">
+            <div class="container justify-content-center align-items-center">
+              <button class="btn-grad" @click="reloadPage()">LOGOUT</button>
+            </div>
+          </div>
+        </div>
+        <div id="account">
+          <h2>Welcome back</h2>
+          <h4>{{ user.firstName }} {{ user.lastName }}</h4>
+          <form @submit="updateUser">
+            <div class="row mb-3">
+              <div class="col-lg-6 mb-3 mt-4 mt-md-0">
+                <label for="firstName" class="form-label">First Name</label>
+                <input
+                  v-model="firstName"
+                  type="text"
+                  class="form-control"
+                  name="firstName"
+                  id="firstName"
+                  @input="changeFirstNameColor"
+                />
+              </div>
+              <div class="col-lg-6">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  v-model="lastName"
+                  class="form-control"
+                  name="lastName"
+                  id="lastName"
+                  @input="changeLastNameColor"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="phoneNo" class="form-label">Phone Number</label>
+              <input
+                v-model="phoneNo"
+                type="number"
+                class="form-control"
+                name="phoneNo"
+                id="phoneNo"
+                @input="changephoneNoColor"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                v-model="email"
+                class="form-control"
+                name="email"
+                id="email"
+                @input="changeEmailColor"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">New Password</label>
+              <input
+                type="text"
+                v-model="userPassword"
+                class="form-control"
+                name="password"
+                placeholder="Enter a New Passowrd"
+                id="password"
+                required
+              />
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div
+                    v-if="clicked"
+                    class="w-50 d-flex justify-content-center align-items-center gap-4"
+                  >
+                    <p class="m-0">Saving...</p>
+                    <div>
+                      <Loader :small="true" />
+                    </div>
+                  </div>
+                  <button v-else type="submit" class="btn-grad">
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-      <section>
-          <div id="account" class="row">
-              <hr>
-              <h1>MY ACCOUNT</h1>
-              <h2>Welcome back</h2>
-              <h4>{{user.firstName}} {{user.lastName}}</h4>
-          </div>
-          <div class="row">
-              <hr>
-              <div id="orders" class="col-md-8">
-                  <h3 class="orders">MY ORDERS</h3>
-                  <h5>You haven't placed any orders yet
-                  </h5>
-              </div>
-              <div id="address" class="col-md-4">
-                  <h3>Edit Details</h3>
-                  <h5>{{user.firstName}} {{user.lastName}}</h5>
-                  <!-- <h5>{{user.province}}</h5>
-                  <h5>{{user.country}}</h5> -->
-                  <button class="btn-grad">EDIT ADDRESS</button>
-              </div>
-          </div>
-      </section>
+    </div>
+    <div v-else>
+      <h1 class="text-center">Please Log in</h1>
     </div>
   </div>
-  <div v-else>
-      <h1 class="text-center">Please Log in</h1></div>
-</div>
 </template>
 
 <script>
 export default {
   computed: {
-      user() {
-          return this.$store.state.user;
-      },
+    user() {
+      return this.$store.state.user;
+    },
   },
   // components: { Footer },
   methods: {
-      reloadPage() {
-          window.location.reload();
-      }
-  }
-}
+    reloadPage() {
+      window.location.reload();
+    },
+  },
+};
 </script>
 
 <style scoped>
+#logout {
+  padding: 0 0 75px 0;
+}
 #main {
-  background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%);
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
