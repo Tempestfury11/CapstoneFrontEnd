@@ -40,6 +40,12 @@
       </li>
 
       <li class="nav-item" v-if="user">
+        <router-link v-if="user" :to="{ name: 'account' }"
+          ><i class="fa-solid fa-gamepad"></i>ACCOUNT</router-link
+        >
+      </li>
+
+      <li class="nav-item" v-if="user">
         <router-link v-if="user.userRole == 'admin'" :to="{ name: 'admin' }"
           ><i class="fa-solid fa-screwdriver-wrench"></i>ADMIN</router-link
         >
