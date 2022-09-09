@@ -54,7 +54,6 @@
             </div>
             <div class="container">
               <div class="row">
-                <div class="col">
                   <div
                     v-if="clicked"
                     class="w-50 d-flex justify-content-center align-items-center gap-4"
@@ -64,16 +63,14 @@
                       <Loader :small="true" />
                     </div>
                   </div>
-                  <div>
-                    
-                  </div>
+                  <div></div>
                   <EditUserModal :user="user"></EditUserModal>
-                              <button class="btn-grad"
-             id="delete"
-               v-on:click="$store.dispatch('deleteUser', user.id)">
-               <router-link to="/admin">Delete</router-link>
-            </button>
-                </div>
+                  <button
+                    class="btn-grad w-100"
+                    id="delete"
+                    v-on:click="$store.dispatch('deleteUser', user.id)">
+                    <router-link to="/admin">Delete</router-link>
+                  </button>
               </div>
             </div>
           </form>
@@ -87,11 +84,11 @@
 </template>
 
 <script>
-import EditUserModal from '../components/EditUserModal.vue';
+import EditUserModal from "../components/EditUserModal.vue";
 export default {
-  props:['user'],
-  components:{
-    EditUserModal
+  props: ["user"],
+  components: {
+    EditUserModal,
   },
   computed: {
     user() {
@@ -100,10 +97,10 @@ export default {
   },
 
   methods: {
-        editUser() {
-            return this.$store.dispatch("editUser", this.user);
-        },
+    editUser() {
+      return this.$store.dispatch("editUser", this.user);
     },
+  },
 };
 </script>
 
@@ -144,7 +141,7 @@ export default {
   border-radius: 10px;
   display: block;
   text-decoration: none;
-  width:110px;
+  width: 110px;
 }
 
 .btn-grad:hover {
